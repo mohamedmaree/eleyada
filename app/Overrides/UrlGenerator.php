@@ -246,11 +246,11 @@ class UrlGenerator implements UrlGeneratorContract
             : $this->formatRoot($this->formatScheme($secure));
 
         // Following 2 lines were added
-        if( isset($_SERVER['REMOTE_ADDR']) ) {
-            if($_SERVER['REMOTE_ADDR'] != '127.0.0.1'){
-                $root .= '/public';
-            }
-        }
+        // if( isset($_SERVER['REMOTE_ADDR']) ) {
+        //     if($_SERVER['REMOTE_ADDR'] != '127.0.0.1'){
+        //         $root .= '/public';
+        //     }
+        // }
 
         return $this->removeIndex($root).'/'.trim($path, '/');
     }

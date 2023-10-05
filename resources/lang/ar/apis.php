@@ -51,4 +51,6 @@ return [
   'max_usa_coupon'        => 'تم الوصول للحد الاقصي لاستخدام الكوبون',
   'model_not_found'    => 'هذا العنصر غير متاح!',
   'route_not_found'    => 'هذا الرابط غير صحيح!',
+  'question_not_available'=>'هذا السؤال لم يعد متاح!',
+  'saved_success'     => 'تم الحفظ بنجاح',
 ];

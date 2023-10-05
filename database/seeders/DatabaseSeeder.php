@@ -32,6 +32,12 @@ class DatabaseSeeder extends Seeder
         $this->call(SmsTableSeeder::class);
         // $this->call(NotificationSeeder::class);
         $this->call(CategoryTableSeeder::class);
+        $this->call(AcademicDegreeTableSeeder::class);
+        $this->call(SpecialityTableSeeder::class);
+        $this->call(AnswersTableSeeder::class);
+        $this->call(QuestionsTableSeeder::class);
+        
+        
         //    $this->call(SettlementTableSeeder::class);
     }
 }

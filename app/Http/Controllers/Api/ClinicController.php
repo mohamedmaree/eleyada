@@ -30,8 +30,6 @@ class ClinicController extends Controller
 
     public function store(ClinicRequest $request)
     {
-        try {
-            DB::beginTransaction();
             $clinic = Clinic::create([
                 'name' => $request['name'],
                 'doctor_id' => auth()->user()->id,
@@ -39,32 +37,26 @@ class ClinicController extends Controller
                 'booking_link' => $request['booking_link'],
                 'address' => $request['address'],
             ]);
-
-            foreach ($request['phone_numbers'] as $number) {
-                $clinic->Numbers()->create([
-                    'number' => $number
-                ]);
+            if($request['phone_numbers']){
+                foreach ($request['phone_numbers'] as $number) {
+                    $clinic->Numbers()->create([
+                        'number' => $number
+                    ]);
+                }
             }
-            foreach ($request->file('images') as $image) {
-                $clinic->Pictures()->create([
-                    'image' => $image
-                ]);
+            if($request->file('images')){
+                foreach ($request->file('images') as $image) {
+                    $clinic->Pictures()->create([
+                        'image' => $image
+                    ]);
+                }
             }
-            DB::commit();
 
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return response()->json(['error' => $e->getMessage()], 400);
-        }
         return $this->successData(new ClinicResource($clinic));
     }
 
     public function update(ClinicRequest $request, Clinic $clinic)
     {
-
-        try {
-            DB::beginTransaction();
-
             $clinic->update([
                 'booking_link' => $request['booking_link'] ?? $clinic->booking_link,
                 'name' => $request['name'] ?? $clinic->name,
@@ -90,12 +82,6 @@ class ClinicController extends Controller
                     ]);
                 }
             }
-
-            DB::commit();
-        } catch (\Exception $e) {
-            DB::rollBack();
-            return response()->json(['error' => $e->getMessage()], 400);
-        }
 
         return $this->successData(new ClinicResource($clinic->refresh()));
     }

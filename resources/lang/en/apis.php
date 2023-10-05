@@ -47,4 +47,6 @@ return [
    'rs'                 => 'Saudi Riyals',
    'model_not_found'    => 'This item not found!',
    'route_not_found'    => 'This http url not exists!',
-];
+   'question_not_available'=>'Question not available!',
+   'saved_success'     => 'Saved Successfully',
+  ];

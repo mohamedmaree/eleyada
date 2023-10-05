@@ -22,22 +22,25 @@ class CertificateController extends Controller
 
     public function store(CertificateRequest $request): JsonResponse
     {
-        foreach ($request->file('images') as $image) {
-            auth()->user()->certificates()->create([
-                'image' => $image
-            ]);
+        if($request->file('images')){
+            foreach ($request->file('images') as $image) {
+                auth()->user()->certificates()->create([
+                    'image' => $image
+                ]);
+            }
         }
-
         return $this->successMsg(__('apis.added'));
     }
 
     public function update(CertificateRequest $request, Certificate $certificate): JsonResponse
     {
         $certificate->delete();
-        foreach ($request->file('images') as $image) {
-            auth()->user()->certificates()->create([
-                'image' => $image
-            ]);
+        if($request->file('images')){
+            foreach ($request->file('images') as $image) {
+                auth()->user()->certificates()->create([
+                    'image' => $image
+                ]);
+            }
         }
         return $this->successMsg(__('apis.updated'));
     }
