@@ -21,6 +21,7 @@ class DoctorResource extends JsonResource
     public function toArray($request) {
       return [
         'id'                  => $this->id,
+        'type'                => 'doctor',
         'name'                => $this->name,
         'email'               => $this->email,
         'country_code'        => $this->country_code,

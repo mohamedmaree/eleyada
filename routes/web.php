@@ -2632,7 +2632,69 @@ Route::group([
             'title' => 'delete_group_of_productcustomfields'
         ]);
     /*------------ end Of productcustomfields ----------*/
+    
+    /*------------ start Of pregnantweeksinfos ----------*/
+        Route::get('pregnantweeksinfos', [
+            'uses'      => 'PregnantWeeksInfoController@index',
+            'as'        => 'pregnantweeksinfos.index',
+            'title'     => 'pregnantweeksinfos',
+            'icon'      => '<i class="feather icon-image"></i>',
+            'type'      => 'parent',
+            'sub_route' => false,
+            'child'     => ['pregnantweeksinfos.create', 'pregnantweeksinfos.store','pregnantweeksinfos.edit', 'pregnantweeksinfos.update', 'pregnantweeksinfos.show', 'pregnantweeksinfos.delete'  ,'pregnantweeksinfos.deleteAll' ,]
+        ]);
+
+        # pregnantweeksinfos store
+        Route::get('pregnantweeksinfos/create', [
+            'uses'  => 'PregnantWeeksInfoController@create',
+            'as'    => 'pregnantweeksinfos.create',
+            'title' => 'add_pregnantweeksinfo_page'
+        ]);
+
+
+        # pregnantweeksinfos store
+        Route::post('pregnantweeksinfos/store', [
+            'uses'  => 'PregnantWeeksInfoController@store',
+            'as'    => 'pregnantweeksinfos.store',
+            'title' => 'add_pregnantweeksinfo'
+        ]);
+
+        # pregnantweeksinfos update
+        Route::get('pregnantweeksinfos/{id}/edit', [
+            'uses'  => 'PregnantWeeksInfoController@edit',
+            'as'    => 'pregnantweeksinfos.edit',
+            'title' => 'update_pregnantweeksinfo_page'
+        ]);
+
+        # pregnantweeksinfos update
+        Route::put('pregnantweeksinfos/{id}', [
+            'uses'  => 'PregnantWeeksInfoController@update',
+            'as'    => 'pregnantweeksinfos.update',
+            'title' => 'update_pregnantweeksinfo'
+        ]);
+
+        # pregnantweeksinfos show
+        Route::get('pregnantweeksinfos/{id}/Show', [
+            'uses'  => 'PregnantWeeksInfoController@show',
+            'as'    => 'pregnantweeksinfos.show',
+            'title' => 'show_pregnantweeksinfo_page'
+        ]);
+
+        # pregnantweeksinfos delete
+        Route::delete('pregnantweeksinfos/{id}', [
+            'uses'  => 'PregnantWeeksInfoController@destroy',
+            'as'    => 'pregnantweeksinfos.delete',
+            'title' => 'delete_pregnantweeksinfo'
+        ]);
+        #delete all pregnantweeksinfos
+        Route::post('delete-all-pregnantweeksinfos', [
+            'uses'  => 'PregnantWeeksInfoController@destroyAll',
+            'as'    => 'pregnantweeksinfos.deleteAll',
+            'title' => 'delete_group_of_pregnantweeksinfos'
+        ]);
+    /*------------ end Of pregnantweeksinfos ----------*/
     #new_routes_here
+                     
                      
                      
                      

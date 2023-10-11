@@ -12,6 +12,7 @@ class CreateUsersTable extends Migration {
       $table->enum('type',['pregnant','non-pregnant','normal'])->default('normal');
       $table->string('country_code',5)->default('002');
       $table->integer('country_id')->nullable();
+      $table->integer('category_id')->nullable();
       $table->string('phone',15)->nullable();
       $table->string('email',50);
       $table->string('password',100);
@@ -28,6 +29,10 @@ class CreateUsersTable extends Migration {
       $table->string('map_desc', 50)->nullable();
       $table->decimal('wallet_balance', 9,2)->default(0);
       $table->timestamp('email_verified_at')->nullable();
+      
+      $table->date('start_pregnant_date')->nullable();
+
+      
       $table->softDeletes();
       $table->timestamp('created_at')->useCurrent();
       $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

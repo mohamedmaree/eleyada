@@ -29,6 +29,7 @@ use App\Http\Controllers\Api\HomeController;
 // use App\Http\Controllers\Api\NotificationController;
 // use App\Http\Controllers\Api\VerificationController;
 use App\Http\Controllers\Api\QuestionsController;
+use App\Http\Controllers\Api\PatientController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -118,7 +119,7 @@ Route::group([
             /***************************** AuthController end *****************************/
             
             /***************************** SettlementController start *****************************/
-                Route::post('settlement-request'                      ,[SettlementController::class, 'settlementRequest']);
+                // Route::post('settlement-request'                      ,[SettlementController::class, 'settlementRequest']);
             /***************************** SettlementController end *****************************/
     
             Route::get('country', [CountryController::class, 'show']);
@@ -127,7 +128,11 @@ Route::group([
             Route::get('public-questions'     , [QuestionsController::class, 'publicQuestions']);
             Route::get('category-questions/{category}'     , [QuestionsController::class, 'categoryQuestions']);
             Route::post('answer-question', [QuestionsController::class, 'answerQuestion']);
-
+            Route::patch('store-goal'    ,[QuestionsController::class, 'storeGoal']);
+                
+            /***************************** PatientController start *****************************/
+            Route::get('pregnant-weeks'     , [PatientController::class, 'pregnantWeeks']);
+            /***************************** PatientController end *****************************/
 
             /***************************** ChatController start *****************************/
                 Route::get('create-room'                       ,[ChatController::class, 'createRoom']);

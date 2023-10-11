@@ -36,6 +36,7 @@ class User extends Authenticatable
         'name',
         'country_code',
         'country_id',
+        'category_id',
         'phone',
         'email',
         'password',
@@ -49,6 +50,7 @@ class User extends Authenticatable
         'code_expire',
         'email_verified_at',
         'wallet_balance',
+        'start_pregnant_date'
     ];
 
     public function scopeSearch($query, $searchArray = [])
@@ -166,7 +168,7 @@ class User extends Authenticatable
         ]);
 
         $this->sendCodeAtSms($this->code);
-        return ['user' => new UserResource($this->refresh())];
+        return new UserResource($this->refresh());
     }
 
     private function activationCode()
@@ -253,9 +255,24 @@ class User extends Authenticatable
         return $this->belongsTo(Country::class,'country_id','id');
     }
 
-    public function cartItems(): HasMany
+    public function category()
+    {
+        return $this->belongsTo(Category::class,'category_id','id');
+    }
+
+    public function cartItems()
     {
         return $this->hasMany(CartItem::class, 'user_id');
+    }
+
+    public function questionsAnswers()
+    {
+        return $this->hasMany(UserAnswer::class, 'user_id');
+    }
+
+    public function isAnsweredQuestions(): bool
+    {
+        return $this->questionsAnswers()->count() > 0;
     }
 
     public static function boot()

@@ -9,8 +9,8 @@ class Product extends BaseModel
     const IMAGEPATH = 'products' ; 
 
     use HasTranslations; 
-    public $translatable = ['value','order'];
-    protected $fillable = ['price', 'insertion_technique', 'icon', 'product_type_id','product_custom_field_id','value','order'];
+    public $translatable = ['value','order','name'];
+    protected $fillable = ['name','price', 'insertion_technique', 'icon', 'product_type_id','product_custom_field_id','value','order'];
 
     protected $casts = [
         'price'         => 'decimal:2',

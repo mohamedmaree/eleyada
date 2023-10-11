@@ -90,7 +90,7 @@ class QuestionsTableSeeder extends Seeder
                 'category_id' => 1,
                 'question'    => json_encode(['en' => 'Waht Do you use as contraceptive methods?'  , 'ar' => 'ما الذي تستخدمينة كوسيلة لمنع الحمل؟'] , JSON_UNESCAPED_UNICODE) , 
                 'type'        => 'select_in_same_page',
-                'image'       => '4.png',
+                'image'       => '3.png',
             ],
             //level 2
             [
@@ -99,7 +99,7 @@ class QuestionsTableSeeder extends Seeder
                 'category_id' => 1,
                 'question'    => json_encode(['en' => 'Do you breastfeeding?'  , 'ar' => 'هل تقومين بعملية الرضاعة؟'] , JSON_UNESCAPED_UNICODE) , 
                 'type'        => 'radio',
-                'image'       => '5.png',
+                'image'       => '4.png',
             ],
             //level 3
             [

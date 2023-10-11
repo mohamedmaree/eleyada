@@ -123,10 +123,14 @@ class AuthController extends Controller {
     }
 
     public function login(LoginRequest $request) {
-        if (!$user = User::where('email', $request['email'])
-            // ->where('country_code', $request['country_code'])
-            ->first()) {
-
+        if(!$user = User::where('email', $request['email'])
+        // ->where('country_code', $request['country_code'])
+        ->first()){
+                $user = Doctor::where('email', $request['email'])
+                // ->where('country_code', $request['country_code'])
+                ->first();
+        }
+        if (!$user) {
             return $this->failMsg(__('auth.failed'));
         }
         if (!Hash::check($request->password, $user->password)) {

@@ -22,8 +22,9 @@ class AnswerQuestionRequest extends BaseApiRequest
     public function rules(): array
     {
         return [
-            'answer'         => 'required',
-            'question_id'    => 'required|exists:questions,id'
+            // 'answer'           => 'required|array',
+            // 'question_id'      => 'required|array',
+            // 'question_id.*'    => 'required|exists:questions,id'
         ];
     }
 }

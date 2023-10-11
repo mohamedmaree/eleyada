@@ -19,6 +19,8 @@ class UserTableSeeder extends Seeder {
         'password'     => bcrypt(123456),
         'is_blocked'      => rand(0, 1),
         'active'       => rand(0, 1),
+        'category_id'   => rand(1, 3),
+        'start_pregnant_date' => date('Y-m-d',strtotime('-15 days')),
       ];
     }
 

@@ -1,9 +1,8 @@
 <?php
-
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use DB;
 
 class ProductTypeTableSeeder extends Seeder
 {
@@ -14,6 +13,12 @@ class ProductTypeTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('product_types')->insert([
+            [
+                'name'              => json_encode(['en' => 'Capsules'  , 'ar' => "كبسولات"] , JSON_UNESCAPED_UNICODE) , 
+            ] , [
+                'name'              => json_encode(['en' => 'injections'  , 'ar' => "حقن"] , JSON_UNESCAPED_UNICODE) , 
+            ],
+        ]);
     }
 }

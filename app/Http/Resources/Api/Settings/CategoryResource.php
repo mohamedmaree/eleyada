@@ -12,8 +12,8 @@ class CategoryResource extends JsonResource
             'id'          => $this->id,
             'name'        => $this->name,
             'image'       => $this->image,
-            'parent_id'   => $this->when($this->parent_id, $this->parent_id),
-            'parent_name' => $this->when($this->parent_id, $this->parent->name ?? ''),
+            // 'parent_id'   => $this->when($this->parent_id, $this->parent_id),
+            // 'parent_name' => $this->when($this->parent_id, $this->parent->name ?? ''),
         ];
     }
 }

@@ -645,7 +645,20 @@ return [
     'delete_group_of_productcustomfields'       => 'حذف مجموعة من الحقول الاضافية',
 
     
+    
+    'pregnantweeksinfo'                        => 'بيانات اسبوع حمل',
+    'pregnantweeksinfos'                       => 'بيانات اسابيع الحمل',
+    'add_pregnantweeksinfo_page'               => 'صفحة اضافة بيانات اسبوع حمل',
+    'add_pregnantweeksinfo'                    => 'اضافة بيانات اسبوع حمل',
+    'update_pregnantweeksinfo_page'            => 'صفحة تحديث بيانات اسبوع حمل',
+    'update_pregnantweeksinfo'                 => 'تحديث بيانات اسبوع حمل',
+    'show_pregnantweeksinfo_page'              => 'صفحة عرض بيانات اسبوع حمل',
+    'delete_pregnantweeksinfo'                 => 'حذف بيانات اسبوع حمل',
+    'delete_group_of_pregnantweeksinfos'       => 'حذف مجموعة من بيانات اسابيع الحمل',
+
+    
     #new_comand_translations_here
+                
                 
                 
                 

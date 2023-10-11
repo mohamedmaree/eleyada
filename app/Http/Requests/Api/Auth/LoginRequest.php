@@ -16,7 +16,8 @@ class LoginRequest extends BaseApiRequest {
     return [
       // 'country_code' => 'required|numeric|digits_between:2,5',
       // 'phone'        => 'required|numeric|digits_between:9,10|exists:users,phone,deleted_at,NULL',
-      'email'       => 'required|email|exists:users,email|max:50',
+      // 'email'       => 'required|email|exists:users,email|max:50',
+      'email'       => 'required|email|max:50',
       'password'    => 'required|min:6|max:100',
       'device_id'   => 'required|max:250',
       'device_type' => 'required|in:ios,android,web',

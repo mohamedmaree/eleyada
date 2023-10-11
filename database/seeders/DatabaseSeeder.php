@@ -36,6 +36,9 @@ class DatabaseSeeder extends Seeder
         $this->call(SpecialityTableSeeder::class);
         $this->call(AnswersTableSeeder::class);
         $this->call(QuestionsTableSeeder::class);
+        $this->call(ProductTypeTableSeeder::class);
+        $this->call(ProductTableSeeder::class);
+        $this->call(PregnantWeeksInfoTableSeeder::class);
         
         
         //    $this->call(SettlementTableSeeder::class);

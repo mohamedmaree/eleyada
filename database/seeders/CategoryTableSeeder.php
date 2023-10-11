@@ -21,17 +21,17 @@ class CategoryTableSeeder extends Seeder
             [   
                 'id'                => 1,
                 'name'              => json_encode(['en' => 'Track Your Monthly Period'  , 'ar' => 'تتبع الدورة الشهرية' ] , JSON_UNESCAPED_UNICODE) , 
-                'image'             => 'category.png',
+                'image'             => 'category1.png',
                 'created_at'        => Carbon::now()
             ],[
                 'id'                => 2,
                 'name'              => json_encode(['en' => 'Trying To Get Pregnant'  , 'ar' => 'احاول ان احمل'] , JSON_UNESCAPED_UNICODE) , 
-                'image'             => 'category.png',
+                'image'             => 'category2.png',
                 'created_at'        => Carbon::now()
             ],[
                 'id'                => 3,
                 'name'              => json_encode(['en' => 'Pregnancy Tracking'  , 'ar' => 'تتبع الحمل'] , JSON_UNESCAPED_UNICODE) , 
-                'image'              => 'category.png',
+                'image'              => 'category3.png',
                 'created_at'        => Carbon::now()
             ]
         ]);

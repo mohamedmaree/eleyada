@@ -185,9 +185,8 @@ class Doctor extends Authenticatable
         ]);
 
         $this->sendCodeAtSms($this->code);
-        return ['user' => new DoctorResource($this->refresh())];
+        return new DoctorResource($this->refresh());
     }
-
     private function activationCode()
     {
         return 1234;
@@ -222,6 +221,7 @@ class Doctor extends Authenticatable
         $token = $this->createToken(request()->device_type)->plainTextToken;
         return DoctorResource::make($this)->setToken($token);
     }
+
 
     public function updateUserLang()
     {
