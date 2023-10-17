@@ -16,10 +16,6 @@ class UserAnswer extends BaseModel
     	return $this->belongsTo(User::class);
     }   
 
-    public function exam(){
-    	return $this->belongsTo(Exams::class);
-    }    
-
     public static function userQuestionAnswer($user_id = null,$question_id = null){
     	return UserAnswer::where(['question_id' => $question_id,'user_id' => $user_id ])->first()->answer??'';
     }   

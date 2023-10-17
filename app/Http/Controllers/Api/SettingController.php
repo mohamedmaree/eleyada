@@ -8,7 +8,7 @@ use App\Models\Intro;
 use App\Models\Order;
 use App\Models\Social;
 use App\Models\Country;
-
+use App\Models\Symptoms;
 use App\Models\Category;
 use App\Models\SiteSetting;
 use App\Models\Region;
@@ -34,6 +34,7 @@ use App\Models\ProductType;
 use App\Http\Resources\Api\Settings\SpecialityResource;
 use App\Http\Resources\Api\Settings\AcademicDegreeResource;
 use App\Http\Resources\Api\Settings\ProductTypeResource;
+use App\Http\Resources\Api\Settings\SymptomsResource;
 
 class SettingController extends Controller {
   use ResponseTrait;
@@ -95,6 +96,11 @@ class SettingController extends Controller {
   public function categories($id = null) {
     $categories = CategoryResource::collection(Category::where('parent_id', $id)->latest()->get());
     return $this->successData($categories);
+  }
+
+  public function symptoms() {
+    $symptoms = SymptomsResource::collection(Symptoms::where('parent_id', null)->latest()->get());
+    return $this->successData($symptoms);
   }
 
   public function countries() {

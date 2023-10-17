@@ -50,7 +50,8 @@ class User extends Authenticatable
         'code_expire',
         'email_verified_at',
         'wallet_balance',
-        'start_pregnant_date'
+        'start_pregnant_date',
+        'period_date'
     ];
 
     public function scopeSearch($query, $searchArray = [])

@@ -21,7 +21,7 @@ class PregnantWeeksInfoTableSeeder extends Seeder
             'baby_info'    => json_encode(['en' => "Your baby's main task is to adapt to life outside the womb" , 'ar' => ' مهمة طفلك الاساسية هي التكيف مع الحياه خارج الرحم'] , JSON_UNESCAPED_UNICODE) , 
             'baby_weight'  => $i.' KG',
             'baby_height'  => $i.' CM',
-            'image'        => 'week'.$i.'.png' , 
+            'image'        => $i.'.png' , 
           ];
         }
     

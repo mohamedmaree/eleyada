@@ -2693,7 +2693,255 @@ Route::group([
             'title' => 'delete_group_of_pregnantweeksinfos'
         ]);
     /*------------ end Of pregnantweeksinfos ----------*/
+    
+    /*------------ start Of advice ----------*/
+        Route::get('advice', [
+            'uses'      => 'adviceController@index',
+            'as'        => 'advice.index',
+            'title'     => 'advice',
+            'icon'      => '<i class="feather icon-image"></i>',
+            'type'      => 'parent',
+            'sub_route' => false,
+            'child'     => ['advice.create', 'advice.store','advice.edit', 'advice.update', 'advice.show', 'advice.delete'  ,'advice.deleteAll' ,]
+        ]);
+
+        # advice store
+        Route::get('advice/create', [
+            'uses'  => 'adviceController@create',
+            'as'    => 'advice.create',
+            'title' => 'add_advice_page'
+        ]);
+
+
+        # advice store
+        Route::post('advice/store', [
+            'uses'  => 'adviceController@store',
+            'as'    => 'advice.store',
+            'title' => 'add_advice'
+        ]);
+
+        # advice update
+        Route::get('advice/{id}/edit', [
+            'uses'  => 'adviceController@edit',
+            'as'    => 'advice.edit',
+            'title' => 'update_advice_page'
+        ]);
+
+        # advice update
+        Route::put('advice/{id}', [
+            'uses'  => 'adviceController@update',
+            'as'    => 'advice.update',
+            'title' => 'update_advice'
+        ]);
+
+        # advice show
+        Route::get('advice/{id}/Show', [
+            'uses'  => 'adviceController@show',
+            'as'    => 'advice.show',
+            'title' => 'show_advice_page'
+        ]);
+
+        # advice delete
+        Route::delete('advice/{id}', [
+            'uses'  => 'adviceController@destroy',
+            'as'    => 'advice.delete',
+            'title' => 'delete_advice'
+        ]);
+        #delete all advice
+        Route::post('delete-all-advice', [
+            'uses'  => 'adviceController@destroyAll',
+            'as'    => 'advice.deleteAll',
+            'title' => 'delete_group_of_advice'
+        ]);
+    /*------------ end Of advice ----------*/
+    
+    /*------------ start Of livevideos ----------*/
+        Route::get('livevideos', [
+            'uses'      => 'LiveVideoController@index',
+            'as'        => 'livevideos.index',
+            'title'     => 'livevideos',
+            'icon'      => '<i class="feather icon-image"></i>',
+            'type'      => 'parent',
+            'sub_route' => false,
+            'child'     => ['livevideos.create', 'livevideos.store','livevideos.edit', 'livevideos.update', 'livevideos.show', 'livevideos.delete'  ,'livevideos.deleteAll' ,]
+        ]);
+
+        # livevideos store
+        Route::get('livevideos/create', [
+            'uses'  => 'LiveVideoController@create',
+            'as'    => 'livevideos.create',
+            'title' => 'add_livevideo_page'
+        ]);
+
+
+        # livevideos store
+        Route::post('livevideos/store', [
+            'uses'  => 'LiveVideoController@store',
+            'as'    => 'livevideos.store',
+            'title' => 'add_livevideo'
+        ]);
+
+        # livevideos update
+        Route::get('livevideos/{id}/edit', [
+            'uses'  => 'LiveVideoController@edit',
+            'as'    => 'livevideos.edit',
+            'title' => 'update_livevideo_page'
+        ]);
+
+        # livevideos update
+        Route::put('livevideos/{id}', [
+            'uses'  => 'LiveVideoController@update',
+            'as'    => 'livevideos.update',
+            'title' => 'update_livevideo'
+        ]);
+
+        # livevideos show
+        Route::get('livevideos/{id}/Show', [
+            'uses'  => 'LiveVideoController@show',
+            'as'    => 'livevideos.show',
+            'title' => 'show_livevideo_page'
+        ]);
+
+        # livevideos delete
+        Route::delete('livevideos/{id}', [
+            'uses'  => 'LiveVideoController@destroy',
+            'as'    => 'livevideos.delete',
+            'title' => 'delete_livevideo'
+        ]);
+        #delete all livevideos
+        Route::post('delete-all-livevideos', [
+            'uses'  => 'LiveVideoController@destroyAll',
+            'as'    => 'livevideos.deleteAll',
+            'title' => 'delete_group_of_livevideos'
+        ]);
+    /*------------ end Of livevideos ----------*/
+    
+    /*------------ start Of symptoms ----------*/
+        Route::get('symptoms', [
+            'uses'      => 'SymptomsController@index',
+            'as'        => 'symptoms.index',
+            'title'     => 'symptoms',
+            'icon'      => '<i class="feather icon-image"></i>',
+            'type'      => 'parent',
+            'sub_route' => false,
+            'child'     => ['symptoms.create', 'symptoms.store','symptoms.edit', 'symptoms.update', 'symptoms.show', 'symptoms.delete'  ,'symptoms.deleteAll' ,]
+        ]);
+
+        # symptoms store
+        Route::get('symptoms/create', [
+            'uses'  => 'SymptomsController@create',
+            'as'    => 'symptoms.create',
+            'title' => 'add_symptoms_page'
+        ]);
+
+
+        # symptoms store
+        Route::post('symptoms/store', [
+            'uses'  => 'SymptomsController@store',
+            'as'    => 'symptoms.store',
+            'title' => 'add_symptoms'
+        ]);
+
+        # symptoms update
+        Route::get('symptoms/{id}/edit', [
+            'uses'  => 'SymptomsController@edit',
+            'as'    => 'symptoms.edit',
+            'title' => 'update_symptoms_page'
+        ]);
+
+        # symptoms update
+        Route::put('symptoms/{id}', [
+            'uses'  => 'SymptomsController@update',
+            'as'    => 'symptoms.update',
+            'title' => 'update_symptoms'
+        ]);
+
+        # symptoms show
+        Route::get('symptoms/{id}/Show', [
+            'uses'  => 'SymptomsController@show',
+            'as'    => 'symptoms.show',
+            'title' => 'show_symptoms_page'
+        ]);
+
+        # symptoms delete
+        Route::delete('symptoms/{id}', [
+            'uses'  => 'SymptomsController@destroy',
+            'as'    => 'symptoms.delete',
+            'title' => 'delete_symptoms'
+        ]);
+        #delete all symptoms
+        Route::post('delete-all-symptoms', [
+            'uses'  => 'SymptomsController@destroyAll',
+            'as'    => 'symptoms.deleteAll',
+            'title' => 'delete_group_of_symptoms'
+        ]);
+    /*------------ end Of symptoms ----------*/
+    
+    /*------------ start Of usersymptoms ----------*/
+        Route::get('usersymptoms', [
+            'uses'      => 'UserSymptomsController@index',
+            'as'        => 'usersymptoms.index',
+            'title'     => 'usersymptoms',
+            'icon'      => '<i class="feather icon-image"></i>',
+            'type'      => 'parent',
+            'sub_route' => false,
+            'child'     => ['usersymptoms.create', 'usersymptoms.store','usersymptoms.edit', 'usersymptoms.update', 'usersymptoms.show', 'usersymptoms.delete'  ,'usersymptoms.deleteAll' ,]
+        ]);
+
+        # usersymptoms store
+        Route::get('usersymptoms/create', [
+            'uses'  => 'UserSymptomsController@create',
+            'as'    => 'usersymptoms.create',
+            'title' => 'add_usersymptoms_page'
+        ]);
+
+
+        # usersymptoms store
+        Route::post('usersymptoms/store', [
+            'uses'  => 'UserSymptomsController@store',
+            'as'    => 'usersymptoms.store',
+            'title' => 'add_usersymptoms'
+        ]);
+
+        # usersymptoms update
+        Route::get('usersymptoms/{id}/edit', [
+            'uses'  => 'UserSymptomsController@edit',
+            'as'    => 'usersymptoms.edit',
+            'title' => 'update_usersymptoms_page'
+        ]);
+
+        # usersymptoms update
+        Route::put('usersymptoms/{id}', [
+            'uses'  => 'UserSymptomsController@update',
+            'as'    => 'usersymptoms.update',
+            'title' => 'update_usersymptoms'
+        ]);
+
+        # usersymptoms show
+        Route::get('usersymptoms/{id}/Show', [
+            'uses'  => 'UserSymptomsController@show',
+            'as'    => 'usersymptoms.show',
+            'title' => 'show_usersymptoms_page'
+        ]);
+
+        # usersymptoms delete
+        Route::delete('usersymptoms/{id}', [
+            'uses'  => 'UserSymptomsController@destroy',
+            'as'    => 'usersymptoms.delete',
+            'title' => 'delete_usersymptoms'
+        ]);
+        #delete all usersymptoms
+        Route::post('delete-all-usersymptoms', [
+            'uses'  => 'UserSymptomsController@destroyAll',
+            'as'    => 'usersymptoms.deleteAll',
+            'title' => 'delete_group_of_usersymptoms'
+        ]);
+    /*------------ end Of usersymptoms ----------*/
     #new_routes_here
+                     
+                     
+                     
+                     
                      
                      
                      

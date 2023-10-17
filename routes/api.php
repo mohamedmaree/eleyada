@@ -58,6 +58,7 @@ Route::group([
                 Route::get('socials'                     ,[SettingController::class, 'socials']);
                 Route::get('images'                      ,[SettingController::class, 'images']);
                 Route::get('categories/{id?}'            ,[SettingController::class, 'categories']);
+                Route::get('symptoms'                    ,[SettingController::class, 'symptoms']);
                 Route::get('countries'                   ,[SettingController::class, 'countries']);
                 Route::get('countries-with-cities'       ,[SettingController::class, 'countriesWithCities']);
                 Route::get('countries-with-regions'      ,[SettingController::class, 'countriesWithRegions']);
@@ -132,6 +133,12 @@ Route::group([
                 
             /***************************** PatientController start *****************************/
             Route::get('pregnant-weeks'     , [PatientController::class, 'pregnantWeeks']);
+            Route::get('period-tracking'     ,[PatientController::class, 'periodTracking']);
+            Route::get('advice-details/{advice}'     ,[PatientController::class, 'adviceDetails']);
+            Route::get('video-details/{video}'     ,[PatientController::class, 'VideoDetails']);
+            Route::patch('store-period-day'    ,[QuestionsController::class, 'storePeriodDay']);
+            Route::post('store-symptoms', [QuestionsController::class, 'storeSymptoms']);
+            
             /***************************** PatientController end *****************************/
 
             /***************************** ChatController start *****************************/

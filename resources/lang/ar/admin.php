@@ -657,7 +657,59 @@ return [
     'delete_group_of_pregnantweeksinfos'       => 'حذف مجموعة من بيانات اسابيع الحمل',
 
     
+    
+    'advice'                        => 'نصيحة',
+    'advice'                       => 'النصائح',
+    'add_advice_page'               => 'صفحة اضافة نصيحة',
+    'add_advice'                    => 'اضافة نصيحة',
+    'update_advice_page'            => 'صفحة تحديث نصيحة',
+    'update_advice'                 => 'تحديث نصيحة',
+    'show_advice_page'              => 'صفحة عرض نصيحة',
+    'delete_advice'                 => 'حذف نصيحة',
+    'delete_group_of_advice'       => 'حذف مجموعة من النصائح',
+
+    
+    
+    'livevideo'                        => 'مقاطع فيديو',
+    'livevideos'                       => 'مقاطع فيديو',
+    'add_livevideo_page'               => 'صفحة اضافة مقاطع فيديو',
+    'add_livevideo'                    => 'اضافة مقاطع فيديو',
+    'update_livevideo_page'            => 'صفحة تحديث مقاطع فيديو',
+    'update_livevideo'                 => 'تحديث مقاطع فيديو',
+    'show_livevideo_page'              => 'صفحة عرض مقاطع فيديو',
+    'delete_livevideo'                 => 'حذف مقاطع فيديو',
+    'delete_group_of_livevideos'       => 'حذف مجموعة من مقاطع فيديو',
+
+    
+    
+    'symptoms'                        => 'الأعراض',
+    'symptoms'                       => 'الأعراض',
+    'add_symptoms_page'               => 'صفحة اضافة الأعراض',
+    'add_symptoms'                    => 'اضافة الأعراض',
+    'update_symptoms_page'            => 'صفحة تحديث الأعراض',
+    'update_symptoms'                 => 'تحديث الأعراض',
+    'show_symptoms_page'              => 'صفحة عرض الأعراض',
+    'delete_symptoms'                 => 'حذف الأعراض',
+    'delete_group_of_symptoms'       => 'حذف مجموعة من الأعراض',
+
+    
+    
+    'usersymptoms'                        => 'الأعراض',
+    'usersymptoms'                       => 'الأعراض',
+    'add_usersymptoms_page'               => 'صفحة اضافة الأعراض',
+    'add_usersymptoms'                    => 'اضافة الأعراض',
+    'update_usersymptoms_page'            => 'صفحة تحديث الأعراض',
+    'update_usersymptoms'                 => 'تحديث الأعراض',
+    'show_usersymptoms_page'              => 'صفحة عرض الأعراض',
+    'delete_usersymptoms'                 => 'حذف الأعراض',
+    'delete_group_of_usersymptoms'       => 'حذف مجموعة من الأعراض',
+
+    
     #new_comand_translations_here
+                
+                
+                
+                
                 
                 
                 

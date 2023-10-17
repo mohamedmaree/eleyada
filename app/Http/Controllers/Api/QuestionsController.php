@@ -6,12 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Models\Question;
 use App\Models\Category;
 use App\Models\UserAnswer;
+use App\Models\UserSymptoms;
+
 use App\Http\Requests\Api\AnswerQuestionRequest;
 use Illuminate\Http\Request;
 use App\Http\Resources\Api\Questions\QuestionsResource;
 use App\Http\Requests\Api\StoreGoalRequest;
-
-
+use App\Http\Requests\Api\StorePeriodDayRequest;
+use App\Http\Requests\Api\StoreSymptomsRequest;
 use App\Traits\ResponseTrait;
 
 class QuestionsController extends Controller
@@ -35,20 +37,34 @@ class QuestionsController extends Controller
         }
         // لو من ضمن الاجابات اجابة سؤال ف اي اسبوع من الحمل واي يوم من الحمل ..اعمل الحسبة بتاع تاريخ بداية الحمل
         if($week = auth()->user()->questionsAnswers()->where(['question_id' => 7])->first()){
-          $day = auth()->user()->questionsAnswers()->where(['question_id' => 8])->first();
-          $num_days = (((int)$week->answer - 1) * 7 )+ (int)$day->answer;
-          $start_pregnant_date = date('Y-m-d',strtotime('-'.$num_days.' days'));
-          auth()->user()->update(['start_pregnant_date' => $start_pregnant_date]);
+          if($day = auth()->user()->questionsAnswers()->where(['question_id' => 8])->first()){
+            $num_days = (((int)$week->answer - 1) * 7 )+ (int)$day->answer;
+            $start_pregnant_date = date('Y-m-d',strtotime('-'.$num_days.' days'));
+            auth()->user()->update(['start_pregnant_date' => $start_pregnant_date]);
+          }
         }
       return $this->successMsg(__('apis.saved_success'));
     }
 
-    public function storeGoal(StoreGoalRequest $request){  
+  public function storeGoal(StoreGoalRequest $request){  
         $user = auth()->user();
         $user->update(['category_id' => $request->category_id]);
       return $this->successMsg(__('apis.saved_success'));
-    }
+  }
 
+  public function storePeriodDay(StorePeriodDayRequest $request){  
+    $user = auth()->user();
+    $user->update(['period_date' => $request->date]);
+    return $this->successMsg(__('apis.saved_success'));
+  }
+
+  public function storeSymptoms(StoreSymptomsRequest $request){  
+    foreach($request->symptoms_ids as $symptoms_id){
+      UserSymptoms::updateOrCreate( ['user_id'     => auth()->id() ,'date' =>date('Y-m-d'),'symptoms_id' => $symptoms_id],
+        ['user_id'     => auth()->id() ,'date' =>date('Y-m-d'),'symptoms_id' => $symptoms_id]); 
+    }
+  return $this->successMsg(__('apis.saved_success'));
+}
 
   
 }

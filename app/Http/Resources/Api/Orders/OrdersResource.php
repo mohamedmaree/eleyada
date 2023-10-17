@@ -26,6 +26,7 @@ class OrdersResource extends JsonResource
             'delivery' => $this->delivery,
             'total_amount' => $this->total_amount,
             'status' => $this->status,
+            'created_at' => date('Y-m-d H:i',strtotime($this->created_at)),
             'order_items' => OrderItemsResource::collection($this->orderItems),
 
         ];

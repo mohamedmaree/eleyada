@@ -31,7 +31,8 @@ class CreateUsersTable extends Migration {
       $table->timestamp('email_verified_at')->nullable();
       
       $table->date('start_pregnant_date')->nullable();
-
+      $table->date('period_date')->nullable();
+      
       
       $table->softDeletes();
       $table->timestamp('created_at')->useCurrent();

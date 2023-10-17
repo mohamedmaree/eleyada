@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('trainings', function (Blueprint $table) {
             $table->id();
             $table->text('title')->nullable();
-            $table->text('description');
-            $table->text('topics');
+            $table->text('description')->nullable();
+            $table->text('topics')->nullable();
             $table->boolean('is_paid')->default(false);
             $table->string('link_to_order')->nullable();
             $table->unsignedBigInteger('product_id')->nullable();

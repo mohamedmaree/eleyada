@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesTableSeeder::class);
         $this->call(PermissionTableSeeder::class);
         $this->call(UserTableSeeder::class);
+        $this->call(DoctorTableSeeder::class);
+
         $this->call(IntroHowWorkTableSeeder::class);
         $this->call(IntroSliderTableSeeder::class);
         $this->call(IntroServiceTableSeeder::class);
@@ -39,6 +41,11 @@ class DatabaseSeeder extends Seeder
         $this->call(ProductTypeTableSeeder::class);
         $this->call(ProductTableSeeder::class);
         $this->call(PregnantWeeksInfoTableSeeder::class);
+        $this->call(adviceTableSeeder::class);
+        $this->call(LiveVideoTableSeeder::class);
+        $this->call(DiscussionTableSeeder::class);
+        $this->call(SymptomsTableSeeder::class);
+        $this->call(TrainingTableSeeder::class);
         
         
         //    $this->call(SettlementTableSeeder::class);

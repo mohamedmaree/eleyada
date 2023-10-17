@@ -4,15 +4,14 @@ namespace App\Http\Requests\Api;
 
 use App\Http\Requests\Api\BaseApiRequest;
 use Illuminate\Http\Request;
-
-class UpdateUserRequest extends BaseApiRequest
+class StoreSymptomsRequest extends BaseApiRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,7 +22,8 @@ class UpdateUserRequest extends BaseApiRequest
     public function rules(): array
     {
         return [
-            //
+            'symptoms_ids'      => 'required|array',
+            'symptoms_ids.*'    => 'required|exists:symptoms,id'
         ];
     }
 }

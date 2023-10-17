@@ -20,6 +20,7 @@ use App\Http\Requests\Api\Auth\DoctorResendCodeRequest;
 use App\Http\Requests\Api\Auth\StoreComplaintRequest;
 use App\Http\Requests\Api\Auth\UpdatePasswordRequest;
 use App\Http\Requests\Api\Auth\UpdateProfileRequest;
+use App\Http\Requests\Api\Auth\UpdateDoctorRequest;
 use App\Http\Requests\Api\User\changeEmailCheckCodeRequest;
 use App\Http\Requests\Api\User\changeEmailSendCodeRequest;
 use App\Http\Requests\Api\User\changePhoneCheckCodeRequest;
@@ -200,7 +201,7 @@ class AuthController extends Controller {
         return $this->successData($userData);
     }
 
-    public function updateDoctorProfile(UpdateProfileRequest $request) {
+    public function updateDoctorProfile(UpdateDoctorRequest $request) {
         $user = auth()->user();
         $user->update($request->validated());
         $requestToken = ltrim($request->header('authorization'), 'Bearer ');

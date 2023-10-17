@@ -18,7 +18,7 @@ class DoctorsResource extends JsonResource
         'name'                => $this->name,
         'email'               => $this->email,
         'country_code'        => $this->country_code,
-        'phone'               => $this->phone,
+        'phone'               => '0'.$this->phone,
         'full_phone'          => $this->full_phone,
         'image'               => $this->image,
         'lang'                => $this->lang,
@@ -28,6 +28,7 @@ class DoctorsResource extends JsonResource
         'academic_degree'     => new AcademicDegreeResource($this->academicDegree),
         'certificates'        => CertificateResource::collection($this->certificates),
         'clinics'             => ClinicResource::collection($this->clinics),
+        'identity_proof'      => $this->identity_proof,
       ];
     }
 }
