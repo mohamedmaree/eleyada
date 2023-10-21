@@ -117,4 +117,13 @@ if (!function_exists("capitalize")) {
     }
 }
 
+function convertToHoursMins($num_minutes) {
+    if ($num_minutes < 1) {
+        return '00:00';
+    }
+    $hours   = floor($num_minutes / 60);
+    $minutes = ($num_minutes % 60);
+    $format = '%02d:%02d';
+    return sprintf($format, $hours, $minutes);
+  }
 

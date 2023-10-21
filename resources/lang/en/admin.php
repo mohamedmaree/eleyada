@@ -437,4 +437,8 @@ return [
     'question'    => 'َ Question',
     'answer'    => ' Answer',
     'title'     => ' Title',
+    
+    'insights'     => 'Insights',
+    "insights_in_arabic"                               => "Insights in Arabic",
+    "insights_in_english"                              => "Insights in English",
 ];

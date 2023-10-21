@@ -22,6 +22,7 @@ class UserTableSeeder extends Seeder {
         'category_id'   => rand(1, 3),
         'start_pregnant_date' => date('Y-m-d',strtotime('-15 days')),
         'period_date' => date('Y-m-d',strtotime('-15 days')),
+        'intercourse_date' => date('Y-m-d H:i:s',strtotime('-2 days')),
       ];
     }
 

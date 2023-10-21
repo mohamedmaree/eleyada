@@ -24,6 +24,10 @@ class UsersResource extends JsonResource {
       'is_notify'           => $this->is_notify,
       'goal'                => new CategoryResource($this->category),
       'country'             => new CountryResource($this->country),
+      'start_pregnant_date' => $this->start_pregnant_date,
+      'period_date'         => $this->period_date,
+      'intercourse_date'    => $this->intercourse_date,
+      'pill_taken_date'     => $this->pill_taken_date
     ];
   }
 }

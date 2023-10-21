@@ -74,7 +74,8 @@ Route::group([
                 Route::get('specialities'                ,[SettingController::class, 'specialities']);
                 Route::get('academic-degrees'            ,[SettingController::class, 'academicDegrees']);
                 Route::get('product-types'               ,[SettingController::class, 'productTypes']);
-                Route::get('locales'                     , [SettingController::class, 'locales']);
+                Route::get('locales'                     ,[SettingController::class, 'locales']);
+                Route::get('insights'                    ,[SettingController::class, 'insights']);
 
                 /***************************** SettingController End *****************************/
         });
@@ -132,12 +133,20 @@ Route::group([
             Route::patch('store-goal'    ,[QuestionsController::class, 'storeGoal']);
                 
             /***************************** PatientController start *****************************/
-            Route::get('pregnant-weeks'     , [PatientController::class, 'pregnantWeeks']);
-            Route::get('period-tracking'     ,[PatientController::class, 'periodTracking']);
+            Route::get('advices'     ,[PatientController::class, 'advices']);
             Route::get('advice-details/{advice}'     ,[PatientController::class, 'adviceDetails']);
             Route::get('video-details/{video}'     ,[PatientController::class, 'VideoDetails']);
+            //pregnant tracking
+            Route::get('pregnant-weeks'     , [PatientController::class, 'pregnantWeeks']);
+            //period tracking
+            Route::get('period-tracking'     ,[PatientController::class, 'periodTracking']);
             Route::patch('store-period-day'    ,[QuestionsController::class, 'storePeriodDay']);
             Route::post('store-symptoms', [QuestionsController::class, 'storeSymptoms']);
+            //contraplan
+            Route::patch('store-intercourse-date'    ,[QuestionsController::class, 'storeIntercourseDate']);
+            Route::patch('store-pill-taken'    ,[QuestionsController::class, 'storePillTakenDate']);
+
+
             
             /***************************** PatientController end *****************************/
 

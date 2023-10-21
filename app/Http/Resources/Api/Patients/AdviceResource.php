@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Api\Patients;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\Api\Patients\AdviceItemsResource;
 
 class AdviceResource extends JsonResource
 {
@@ -18,6 +19,9 @@ class AdviceResource extends JsonResource
             'name'        => $this->name,
             'content'     => $this->content,
             'image'       => $this->image,
+            'video'       => $this->video,
+            'product_id'  => $this->product_id,
+            'type'        => $this->type,
         ];
     }
 }

@@ -18,6 +18,9 @@ return new class extends Migration
             $table->text('name')->nullable();
             $table->text('content')->nullable();
             $table->string('image')->nullable();
+            $table->string('video')->nullable();
+            $table->integer('product_id')->nullable();
+            $table->enum('type',['product','video','image','text'])->nullable()->default('text');
             $table->timestamps();
         });
     }

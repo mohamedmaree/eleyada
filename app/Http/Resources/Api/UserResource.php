@@ -30,6 +30,10 @@ class UserResource extends JsonResource {
       'token'               => $this->token,
       'goal'                => new CategoryResource($this->category),
       'country'             => new CountryResource($this->country),
+      'start_pregnant_date' => $this->start_pregnant_date,
+      'period_date'         => $this->period_date,
+      'intercourse_date'    => $this->intercourse_date,
+      'pill_taken_date'     => $this->pill_taken_date
     ];
   }
 }

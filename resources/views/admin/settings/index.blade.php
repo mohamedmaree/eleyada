@@ -45,6 +45,12 @@
                       </a>
                   </li>
                   <li class="nav-item " style="margin-top: 3px">
+                    <a class="nav-link d-flex py-75" id="account-pill-insights" data-toggle="pill" href="#account-vertical-insights" aria-expanded="false">
+                        <i class="feather icon-award mr-50 font-medium-3"></i>
+                        {{__('admin.insights')}}
+                    </a>
+                   </li>
+                  <li class="nav-item " style="margin-top: 3px">
                       <a class="nav-link d-flex py-75" id="account-pill-smtp" data-toggle="pill" href="#account-vertical-smtp" aria-expanded="false">
                           <i class="feather icon-mail mr-50 font-medium-3"></i>
                           {{__('admin.email_data')}}
@@ -385,6 +391,35 @@
                                 </form>
                               </div>
 
+                              <div role="tabpanel" class="tab-pane" id="account-vertical-insights" aria-labelledby="account-pill-insights" aria-expanded="false">
+                                <form accept="{{route('admin.settings.update')}}" method="post" enctype="multipart/form-data">
+                                    @method('put')
+                                    @csrf
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <div class="controls">
+                                                    <label for="account-name">{{__('admin.insights_in_arabic')}}</label>
+                                                    <textarea class="form-control" name="insights_ar" id="insights_ar_editor" cols="30" rows="10" placeholder="{{__('admin.insights_in_arabic')}}">{{$data['insights_ar']}}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <div class="controls">
+                                                    <label for="account-name">{{__('admin.insights_in_english')}}</label>
+                                                    <textarea class="form-control" name="insights_en" id="insights_en_editor" cols="30" rows="10" placeholder="{{__('admin.insights_in_english')}}">{{$data['insights_en']}}</textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 d-flex justify-content-center mt-3">
+                                          <button type="submit" class="btn btn-primary mr-1 mb-1 submit_button">{{__('admin.saving_changes')}}</button>
+                                          <a href="{{ url()->previous() }}" type="reset" class="btn btn-outline-warning mr-1 mb-1">{{__('admin.back')}}</a>
+                                      </div>
+                                    </div>
+                                </form>
+                              </div>
+
                               <div role="tabpanel" class="tab-pane" id="account-vertical-smtp" aria-labelledby="account-pill-smtp" aria-expanded="false">
                                 <form accept="{{route('admin.settings.update')}}" method="post" enctype="multipart/form-data">
                                     @method('put')
@@ -557,6 +592,9 @@
             CKEDITOR.replace( 'privacy_en_editor' );
             CKEDITOR.replace( 'about_ar_editor' );
             CKEDITOR.replace( 'about_en_editor' );
+
+            CKEDITOR.replace( 'insights_ar_editor' );
+            CKEDITOR.replace( 'insights_en_editor' );
     </script>
   {{-- show selected image script --}}
     @include('admin.shared.addImage')

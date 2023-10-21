@@ -86,6 +86,8 @@
                 [ 'key' => 'default_locale'                 , 'value' => 'ar' ],
                 [ 'key' => 'locales'                        , 'value' => '["en","ar"]' ],
                 [ 'key' => 'rtl_locales'                    , 'value' => '["ar"]' ],
+                [ 'key' => 'insights_ar'                    , 'value' => 'معلومات تهمك معلومات تهمك'      ],
+                [ 'key' => 'insights_en'                    , 'value' => 'insights for you insights for you'                ],
             ];
 			SiteSetting ::insert( $data );
             

@@ -72,6 +72,11 @@ class SettingController extends Controller {
     return $this->successData( $privacy);
   }
 
+  public function insights() {
+    $insights = SiteSetting::where(['key' => 'insights_' . lang()])->first()->value;
+    return $this->successData( $insights);
+  }
+
   public function intros() {
     $intros = IntroResource::collection(Intro::latest()->get());
     return $this->successData( $intros);

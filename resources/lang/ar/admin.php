@@ -705,7 +705,23 @@ return [
     'delete_group_of_usersymptoms'       => 'حذف مجموعة من الأعراض',
 
     
+    
+    'adviceitems'                        => 'نصيحة',
+    'adviceitems'                       => 'النصائح',
+    'add_adviceitems_page'               => 'صفحة اضافة نصيحة',
+    'add_adviceitems'                    => 'اضافة نصيحة',
+    'update_adviceitems_page'            => 'صفحة تحديث نصيحة',
+    'update_adviceitems'                 => 'تحديث نصيحة',
+    'show_adviceitems_page'              => 'صفحة عرض نصيحة',
+    'delete_adviceitems'                 => 'حذف نصيحة',
+    'delete_group_of_adviceitems'       => 'حذف مجموعة من النصائح',
+    
+    'insights'     => 'معلومات تهمك',
+    "insights_in_arabic"                               => "معلومات تهمك بالعربية",
+    "insights_in_english"                              => "معلومات تهمك بالانجليزية",
+    
     #new_comand_translations_here
+                
                 
                 
                 

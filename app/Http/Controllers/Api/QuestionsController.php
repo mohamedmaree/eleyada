@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Http\Resources\Api\Questions\QuestionsResource;
 use App\Http\Requests\Api\StoreGoalRequest;
 use App\Http\Requests\Api\StorePeriodDayRequest;
+use App\Http\Requests\Api\StoreIntercourseDateRequest;
 use App\Http\Requests\Api\StoreSymptomsRequest;
 use App\Traits\ResponseTrait;
 
@@ -54,7 +55,19 @@ class QuestionsController extends Controller
 
   public function storePeriodDay(StorePeriodDayRequest $request){  
     $user = auth()->user();
-    $user->update(['period_date' => $request->date]);
+    $user->update(['period_date' => date('Y-m-d',strtotime($request->date))]);
+    return $this->successMsg(__('apis.saved_success'));
+  }
+
+  public function storeIntercourseDate(StoreIntercourseDateRequest $request){  
+    $user = auth()->user();
+    $user->update(['intercourse_date' => date('Y-m-d H:i',strtotime($request->date))]);
+    return $this->successMsg(__('apis.saved_success'));
+  }
+
+  public function storePillTakenDate(Request $request){  
+    $user = auth()->user();
+    $user->update(['pill_taken_date' => date('Y-m-d H:i')]);
     return $this->successMsg(__('apis.saved_success'));
   }
 

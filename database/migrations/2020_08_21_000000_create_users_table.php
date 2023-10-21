@@ -32,6 +32,8 @@ class CreateUsersTable extends Migration {
       
       $table->date('start_pregnant_date')->nullable();
       $table->date('period_date')->nullable();
+      $table->dateTime('intercourse_date')->nullable();
+      $table->dateTime('pill_taken_date')->nullable();
       
       
       $table->softDeletes();
