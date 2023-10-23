@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('advice', function (Blueprint $table) {
+        Schema::create('avatar_images', function (Blueprint $table) {
             $table->id();
-            $table->text('name')->nullable();
-            $table->text('content')->nullable();
-            $table->string('image')->nullable();
-            $table->string('video')->nullable();
-            $table->string('product_link')->nullable();
-            $table->enum('type',['video','image','text'])->nullable()->default('text');
+            $table->string('image');
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('advice');
+        Schema::dropIfExists('avatar_images');
     }
 };

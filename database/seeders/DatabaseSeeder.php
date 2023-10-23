@@ -46,8 +46,8 @@ class DatabaseSeeder extends Seeder
         $this->call(DiscussionTableSeeder::class);
         $this->call(SymptomsTableSeeder::class);
         $this->call(TrainingTableSeeder::class);
+        $this->call(ClinicTableSeeder::class);
+        $this->call(AvatarImagesTableSeeder::class);
         
-        
-        //    $this->call(SettlementTableSeeder::class);
     }
 }

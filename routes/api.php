@@ -57,6 +57,7 @@ Route::group([
                 Route::get('fqss'                        ,[SettingController::class, 'fqss']);
                 Route::get('socials'                     ,[SettingController::class, 'socials']);
                 Route::get('images'                      ,[SettingController::class, 'images']);
+                Route::get('avatar-images'               ,[SettingController::class, 'avatarImages']);
                 Route::get('categories/{id?}'            ,[SettingController::class, 'categories']);
                 Route::get('symptoms'                    ,[SettingController::class, 'symptoms']);
                 Route::get('countries'                   ,[SettingController::class, 'countries']);
@@ -101,8 +102,11 @@ Route::group([
     
         Route::group(['middleware' => ['auth:sanctum', 'is-active']], function () {
             /***************************** AuthController  Start *****************************/
-                Route::get('profile'                                  ,[AuthController::class,       'getProfile']);
-                Route::put('update-profile'                           ,[AuthController::class,       'updateProfile']);
+                Route::get('profile'                                  ,[AuthController::class,   'getProfile']);
+                Route::put('update-profile'                           ,[AuthController::class,   'updateProfile']);
+                Route::put('update-patient-notifications'             ,[AuthController::class,   'updatePatientNotifications']);
+                Route::put('update-care-giver-data'                   ,[AuthController::class,   'updateCareGiverData']);
+                
                 Route::get('doctor-profile'                           ,[AuthController::class,       'getDoctorProfile']);
                 Route::put('update-doctor-profile'                    ,[AuthController::class,       'updateDoctorProfile']);
                 Route::patch('update-passward'                        ,[AuthController::class,       'updatePassword']);
@@ -199,8 +203,10 @@ Route::group([
         Route::get('doctors', [DoctorController::class, 'index'])->name('doctor.index');
         Route::get('doctors/{doctor}', [DoctorController::class, 'showDoctor'])->name('doctors.show');
     
-    //     //  clinic routes
+    //  clinic routes
         Route::get('clinics', [ClinicController::class, 'index'])->name('clinic.index');
+        Route::get('nearest-clinics', [ClinicController::class, 'nearestClinics']);
+
         Route::get('clinics/{clinic}', [ClinicController::class, 'show'])->name('clinic.show');
         Route::post('clinics', [ClinicController::class, 'store'])->name('clinic.store');
         Route::post('clinics/{clinic}/update', [ClinicController::class, 'update'])->name('clinic.update');

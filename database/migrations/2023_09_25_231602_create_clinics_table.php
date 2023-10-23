@@ -20,6 +20,8 @@ return new class extends Migration
             $table->unsignedBigInteger('doctor_id')->nullable();
             $table->string('location_link')->nullable();
             $table->string('address')->nullable();
+            $table->decimal('lat', 12, 10)->nullable();
+            $table->decimal('lng', 12, 10)->nullable();
             $table->timestamps();
         });
     }

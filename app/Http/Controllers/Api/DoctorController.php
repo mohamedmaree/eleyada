@@ -17,8 +17,7 @@ class DoctorController extends Controller
 {
     use ResponseTrait;
 
-    public function show()
-    {
+    public function show(){
         $doctorData = auth()->user()->load([
             'country',
             'speciality',
@@ -31,8 +30,7 @@ class DoctorController extends Controller
         return response()->json(['result' => $doctorData], 200);
     }
 
-    public function index()
-    {
+    public function index(){
         $name = request()->query('name');
         $doctors  = Doctor::when($name , function ($q)use($name){
                                 return $q->whereFuzzy('name', $name);
@@ -42,8 +40,7 @@ class DoctorController extends Controller
         return $this->successData(new DoctorsCollection($doctors));
     }
 
-    public function showDoctor(Doctor $doctor)
-    {
+    public function showDoctor(Doctor $doctor){
         $doctorData = $doctor->load(
             [
                 'speciality',
@@ -57,8 +54,7 @@ class DoctorController extends Controller
 
     }
 
-    public function update(UpdateDoctorRequest $request)
-    {
+    public function update(UpdateDoctorRequest $request){
         try {
             DB::beginTransaction();
 

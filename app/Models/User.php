@@ -30,6 +30,9 @@ class User extends Authenticatable
         'is_approved' => 'boolean',
         'active'      => 'boolean',
         'email_verified_at' => 'datetime',
+        'pill_notifications'           => 'boolean',
+        'iud_inspection_notifications' => 'boolean',
+        'injection_notifications'      => 'boolean',
     ];
 
     protected $fillable = [
@@ -51,9 +54,25 @@ class User extends Authenticatable
         'email_verified_at',
         'wallet_balance',
         'start_pregnant_date',
-        'period_date',
         'intercourse_date',
-        'pill_taken_date'
+        
+        'period_cycle_length',
+        'period_length',
+        
+        'pill_notifications',
+        'period_date',
+        'pill_taken_date',
+        'pill_type',
+        
+        'iud_inspection_notifications',
+        'iud_installed_date',
+        'iud_type',
+
+        'injection_notifications',
+        'last_visit_doctor_date',
+
+        'care_giver_name',
+        'care_giver_email'
     ];
 
     public function scopeSearch($query, $searchArray = [])
@@ -114,20 +133,20 @@ class User extends Authenticatable
     public function getImageAttribute()
     {
         if ($this->attributes['image']) {
-            $image = $this->getImage($this->attributes['image'], 'users');
+            $image = $this->getImage($this->attributes['image'], 'avatarimages');
         } else {
-            $image = $this->defaultImage('users');
+            $image = $this->defaultImage('avatarimages');
         }
         return $image;
     }
 
-    public function setImageAttribute($value)
-    {
-        if (null != $value && is_file($value)) {
-            isset($this->attributes['image']) ? $this->deleteFile($this->attributes['image'], 'users') : '';
-            $this->attributes['image'] = $this->uploadAllTyps($value, 'users');
-        }
-    }
+    // public function setImageAttribute($value)
+    // {
+    //     if (null != $value && is_file($value)) {
+    //         isset($this->attributes['image']) ? $this->deleteFile($this->attributes['image'], 'users') : '';
+    //         $this->attributes['image'] = $this->uploadAllTyps($value, 'users');
+    //     }
+    // }
 
     public function setPasswordAttribute($value)
     {
@@ -275,7 +294,7 @@ class User extends Authenticatable
 
     public function isAnsweredQuestions(): bool
     {
-        return $this->questionsAnswers()->count() > 0;
+        return $this->questionsAnswers()->where('question_id','>',4)->count() > 0;
     }
 
     public static function boot()
@@ -284,7 +303,7 @@ class User extends Authenticatable
         /* creating, created, updating, updated, deleting, deleted, forceDeleted, restored */
 
         static::deleted(function ($model) {
-            $model->deleteFile($model->attributes['image'], 'users');
+            // $model->deleteFile($model->attributes['image'], 'users');
         });
     }
 

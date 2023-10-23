@@ -35,6 +35,9 @@ use App\Http\Resources\Api\Settings\SpecialityResource;
 use App\Http\Resources\Api\Settings\AcademicDegreeResource;
 use App\Http\Resources\Api\Settings\ProductTypeResource;
 use App\Http\Resources\Api\Settings\SymptomsResource;
+use App\Http\Resources\Api\Settings\AvatarImagesResource;
+use App\Models\AvatarImages;
+
 
 class SettingController extends Controller {
   use ResponseTrait;
@@ -96,6 +99,11 @@ class SettingController extends Controller {
     $images = ImageResource::collection(Image::latest()->get());
     return $this->successData( $images);
     //$images = ImageResource::collection(Image::paginate(1));
+  }
+
+  public function avatarImages() {
+    $images = AvatarImagesResource::collection(AvatarImages::latest()->get());
+    return $this->successData( $images);
   }
 
   public function categories($id = null) {

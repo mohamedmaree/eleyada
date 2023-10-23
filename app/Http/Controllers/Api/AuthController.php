@@ -20,6 +20,9 @@ use App\Http\Requests\Api\Auth\DoctorResendCodeRequest;
 use App\Http\Requests\Api\Auth\StoreComplaintRequest;
 use App\Http\Requests\Api\Auth\UpdatePasswordRequest;
 use App\Http\Requests\Api\Auth\UpdateProfileRequest;
+use App\Http\Requests\Api\Auth\UpdatePatientNotificationsRequest;
+use App\Http\Requests\Api\Auth\UpdateCareGiverDataRequest;
+
 use App\Http\Requests\Api\Auth\UpdateDoctorRequest;
 use App\Http\Requests\Api\User\changeEmailCheckCodeRequest;
 use App\Http\Requests\Api\User\changeEmailSendCodeRequest;
@@ -191,8 +194,25 @@ class AuthController extends Controller {
         if (!$user->active) {
             return $this->phoneActivationReturn($user);
         }
-        return $this->response('success', __('apis.updated'), ['user' => $userData]);
+        return $this->response('success', __('apis.updated'), $userData);
     }
+
+    public function updatePatientNotifications(UpdatePatientNotificationsRequest $request) {
+        $user = auth()->user();
+        $user->update($request->validated());
+        $requestToken = ltrim($request->header('authorization'), 'Bearer ');
+        $userData     = UserResource::make($user->refresh())->setToken($requestToken);
+        return $this->response('success', __('apis.updated'), $userData);
+    }
+    
+    public function updateCareGiverData(UpdateCareGiverDataRequest $request) {
+        $user = auth()->user();
+        $user->update($request->validated());
+        $requestToken = ltrim($request->header('authorization'), 'Bearer ');
+        $userData     = UserResource::make($user->refresh())->setToken($requestToken);
+        return $this->response('success', __('apis.updated'), $userData);
+    }
+    
 
     public function getDoctorProfile(Request $request) {
         $user         = auth()->user();
@@ -209,7 +229,7 @@ class AuthController extends Controller {
         if (!$user->active) {
             return $this->phoneActivationReturn($user);
         }
-        return $this->response('success', __('apis.updated'), ['user' => $userData]);
+        return $this->response('success', __('apis.updated'), $userData);
     }
 
     public function updatePassword(UpdatePasswordRequest $request) {

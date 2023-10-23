@@ -2938,7 +2938,69 @@ Route::group([
         ]);
     /*------------ end Of usersymptoms ----------*/
     
+    
+    /*------------ start Of avatarimages ----------*/
+        Route::get('avatarimages', [
+            'uses'      => 'AvatarImagesController@index',
+            'as'        => 'avatarimages.index',
+            'title'     => 'avatarimages',
+            'icon'      => '<i class="feather icon-image"></i>',
+            'type'      => 'parent',
+            'sub_route' => false,
+            'child'     => ['avatarimages.create', 'avatarimages.store','avatarimages.edit', 'avatarimages.update', 'avatarimages.show', 'avatarimages.delete'  ,'avatarimages.deleteAll' ,]
+        ]);
+
+        # avatarimages store
+        Route::get('avatarimages/create', [
+            'uses'  => 'AvatarImagesController@create',
+            'as'    => 'avatarimages.create',
+            'title' => 'add_avatarimages_page'
+        ]);
+
+
+        # avatarimages store
+        Route::post('avatarimages/store', [
+            'uses'  => 'AvatarImagesController@store',
+            'as'    => 'avatarimages.store',
+            'title' => 'add_avatarimages'
+        ]);
+
+        # avatarimages update
+        Route::get('avatarimages/{id}/edit', [
+            'uses'  => 'AvatarImagesController@edit',
+            'as'    => 'avatarimages.edit',
+            'title' => 'update_avatarimages_page'
+        ]);
+
+        # avatarimages update
+        Route::put('avatarimages/{id}', [
+            'uses'  => 'AvatarImagesController@update',
+            'as'    => 'avatarimages.update',
+            'title' => 'update_avatarimages'
+        ]);
+
+        # avatarimages show
+        Route::get('avatarimages/{id}/Show', [
+            'uses'  => 'AvatarImagesController@show',
+            'as'    => 'avatarimages.show',
+            'title' => 'show_avatarimages_page'
+        ]);
+
+        # avatarimages delete
+        Route::delete('avatarimages/{id}', [
+            'uses'  => 'AvatarImagesController@destroy',
+            'as'    => 'avatarimages.delete',
+            'title' => 'delete_avatarimages'
+        ]);
+        #delete all avatarimages
+        Route::post('delete-all-avatarimages', [
+            'uses'  => 'AvatarImagesController@destroyAll',
+            'as'    => 'avatarimages.deleteAll',
+            'title' => 'delete_group_of_avatarimages'
+        ]);
+    /*------------ end Of avatarimages ----------*/
     #new_routes_here
+                     
                      
                      
                      

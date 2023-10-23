@@ -20,7 +20,7 @@ class AdviceResource extends JsonResource
             'content'     => $this->content,
             'image'       => $this->image,
             'video'       => $this->video,
-            'product_id'  => $this->product_id,
+            'product_link'  => $this->product_link,
             'type'        => $this->type,
         ];
     }

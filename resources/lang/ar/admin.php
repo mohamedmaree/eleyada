@@ -720,7 +720,20 @@ return [
     "insights_in_arabic"                               => "معلومات تهمك بالعربية",
     "insights_in_english"                              => "معلومات تهمك بالانجليزية",
     
+    
+    'avatarimages'                        => 'صور المستخدمين',
+    'avatarimages'                       => 'صور المستخدمين',
+    'add_avatarimages_page'               => 'صفحة اضافة صور المستخدمين',
+    'add_avatarimages'                    => 'اضافة صور المستخدمين',
+    'update_avatarimages_page'            => 'صفحة تحديث صور المستخدمين',
+    'update_avatarimages'                 => 'تحديث صور المستخدمين',
+    'show_avatarimages_page'              => 'صفحة عرض صور المستخدمين',
+    'delete_avatarimages'                 => 'حذف صور المستخدمين',
+    'delete_group_of_avatarimages'       => 'حذف مجموعة من صور المستخدمين',
+
+    
     #new_comand_translations_here
+                
                 
                 
                 

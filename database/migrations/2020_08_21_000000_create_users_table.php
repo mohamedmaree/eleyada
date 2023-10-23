@@ -33,9 +33,24 @@ class CreateUsersTable extends Migration {
       $table->date('start_pregnant_date')->nullable();
       $table->date('period_date')->nullable();
       $table->dateTime('intercourse_date')->nullable();
+      
+      $table->integer('period_cycle_length')->nullable();
+      $table->integer('period_length')->nullable();
+      
+      $table->boolean('pill_notifications')->default(true);
       $table->dateTime('pill_taken_date')->nullable();
+      $table->string('pill_type')->nullable();
       
+      $table->boolean('iud_inspection_notifications')->default(true);
+      $table->date('iud_installed_date')->nullable();
+      $table->string('iud_type')->nullable();
+
+      $table->boolean('injection_notifications')->default(true);
+      $table->date('last_visit_doctor_date')->nullable();
       
+      $table->string('care_giver_name')->nullable();
+      $table->string('care_giver_email')->nullable();
+
       $table->softDeletes();
       $table->timestamp('created_at')->useCurrent();
       $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

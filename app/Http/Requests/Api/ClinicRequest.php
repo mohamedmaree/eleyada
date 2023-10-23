@@ -27,7 +27,9 @@ class ClinicRequest extends BaseApiRequest
             'phone_numbers.*' => 'nullable',
             'location_link' => 'nullable|url',
             'booking_link' => 'nullable|url',
-            'address' => 'nullable|url',
+            'address' => 'nullable',
+            'lat' => 'nullable',
+            'lng' => 'nullable',
             'images.*' => ['nullable', 'image', 'file', 'max:2048']
         ];
     }

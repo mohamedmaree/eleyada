@@ -12,15 +12,39 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
 use App\Traits\ResponseTrait;
 use App\Http\Resources\Api\ClinicResource;
+use App\Http\Resources\Api\ClinicsCollection;
+use Illuminate\Http\Request;
 
 class ClinicController extends Controller
 {
     use ResponseTrait;
 
-    public function index()
-    {
+    public function index(){
         $clinics = ClinicResource::collection(auth()->user()->clinics);
         return $this->successData($clinics);
+    }
+
+    public function nearestClinics(Request $request){
+        $R = 3960;  // earth's mean radius
+        $rad = 1000;//$max_distance;
+        // first-cut bounding box (in degrees)
+        $lat = $request->lat;
+        $lng = $request->lng;
+        $lat = ($lat)??30.123456;
+        $lng = ($lng)??30.123456;
+        $maxLat = $lat + rad2deg($rad/$R);
+        $minLat = $lat - rad2deg($rad/$R);
+        // compensate for degrees longitude getting smaller with increasing latitude
+        $maxLng = $lng + rad2deg($rad/$R/cos(deg2rad($lat)));
+        $minLng = $lng - rad2deg($rad/$R/cos(deg2rad($lat)));
+    
+        $maxLat=number_format((float)$maxLat, 6, '.', '');
+        $minLat=number_format((float)$minLat, 6, '.', '');
+        $maxlng=number_format((float)$maxLng, 6, '.', '');
+        $minLng=number_format((float)$minLng, 6, '.', '');
+
+        $near_clinics = Clinic::whereBetween('lng', [$minLng, $maxLng])->whereBetween('lat', [$minLat, $maxLat])->orderBy(DB::raw("(POW((lng-$lng),2) + POW((lat-$lat),2))"),'ASC')->paginate($this->paginateNum());
+        return $this->successData(new ClinicsCollection($near_clinics));
     }
 
     public function show(Clinic $clinic)
@@ -36,6 +60,8 @@ class ClinicController extends Controller
                 'location_link' => $request['location_link'],
                 'booking_link' => $request['booking_link'],
                 'address' => $request['address'],
+                'lat' => $request['lat'],
+                'lng' => $request['lng'],
             ]);
             if($request['phone_numbers']){
                 foreach ($request['phone_numbers'] as $number) {
@@ -60,7 +86,9 @@ class ClinicController extends Controller
             $clinic->update([
                 'booking_link' => $request['booking_link'] ?? $clinic->booking_link,
                 'name' => $request['name'] ?? $clinic->name,
-                'location_link' => $request['location_link'] ?? $clinic->location_link
+                'location_link' => $request['location_link'] ?? $clinic->location_link,
+                'lat' => $request['lat'] ?? $clinic->lat,
+                'lng' => $request['lng'] ?? $clinic->lng,
             ]);
 
 

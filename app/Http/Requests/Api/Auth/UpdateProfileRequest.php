@@ -21,12 +21,15 @@ class UpdateProfileRequest extends BaseApiRequest {
 
   public function rules() {
     return [
-      'name' => 'nullable',
-      'email' => 'nullable|email|max:50,unique:users,email,'.$this->id,
-      'country_id' => ['nullable', 'exists:countries,id'],
-      'phone' => 'nullable|numeric|digits_between:9,10|unique:users,email,'.$this->id,
-      'image' => ['nullable', 'image', 'file', 'max:2048'],
-  ];
+      'name'                   => 'nullable',
+      'email'                  => 'nullable|email|max:50,unique:users,email,'.$this->id,
+      'country_id'             => ['nullable', 'exists:countries,id'],
+      'phone'                  => 'nullable|numeric|digits_between:9,10|unique:users,email,'.$this->id,
+      'image'                  => ['nullable'],
+      'category_id'            => 'nullable|exists:categories,id',
+      'period_cycle_length'    => 'nullable',
+      'period_length'          => 'nullable',
+    ];
   }
 
   public function withValidator($validator) {
