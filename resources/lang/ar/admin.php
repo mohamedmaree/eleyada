@@ -732,7 +732,33 @@ return [
     'delete_group_of_avatarimages'       => 'حذف مجموعة من صور المستخدمين',
 
     
+    
+    'productoptions'                        => 'خيارات المنتجات',
+    'productoptions'                       => 'خيارات المنتجات',
+    'add_productoptions_page'               => 'صفحة اضافة خيارات المنتجات',
+    'add_productoptions'                    => 'اضافة خيارات المنتجات',
+    'update_productoptions_page'            => 'صفحة تحديث خيارات المنتجات',
+    'update_productoptions'                 => 'تحديث خيارات المنتجات',
+    'show_productoptions_page'              => 'صفحة عرض خيارات المنتجات',
+    'delete_productoptions'                 => 'حذف خيارات المنتجات',
+    'delete_group_of_productoptions'       => 'حذف مجموعة من خيارات المنتجات',
+
+    
+    
+    'productoptionsvalues'                        => 'قيم خيارات المنتجات',
+    'productoptionsvalues'                       => 'قيم خيارات المنتجات',
+    'add_productoptionsvalues_page'               => 'صفحة اضافة قيم خيارات المنتجات',
+    'add_productoptionsvalues'                    => 'اضافة قيم خيارات المنتجات',
+    'update_productoptionsvalues_page'            => 'صفحة تحديث قيم خيارات المنتجات',
+    'update_productoptionsvalues'                 => 'تحديث قيم خيارات المنتجات',
+    'show_productoptionsvalues_page'              => 'صفحة عرض قيم خيارات المنتجات',
+    'delete_productoptionsvalues'                 => 'حذف قيم خيارات المنتجات',
+    'delete_group_of_productoptionsvalues'       => 'حذف مجموعة من قيم خيارات المنتجات',
+
+    
     #new_comand_translations_here
+                
+                
                 
                 
                 

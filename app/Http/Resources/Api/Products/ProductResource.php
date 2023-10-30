@@ -6,7 +6,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\Api\Settings\ProductTypeResource;
 use App\Http\Resources\Api\Products\ProductPicturesResource;
 
-class ProductsResource extends JsonResource
+class ProductResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -27,10 +27,7 @@ class ProductsResource extends JsonResource
             'insertion_technique'  => $this->insertion_technique,
             'product_type'         => new ProductTypeResource($this->productType),
             'pictures'             => ProductPicturesResource::collection($this->pictures),
-            // 'product_custom_field_id' => $this->product_custom_field_id,
-            // 'key' => $this->key,
-            // 'value' => $this->value,
-            // 'order' => $this->order,
+            'options'              => ProductOptionsResource::collection($this->productOptions),
         ];
     }
 }

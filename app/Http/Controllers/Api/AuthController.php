@@ -187,6 +187,7 @@ class AuthController extends Controller {
     }
 
     public function updateProfile(UpdateProfileRequest $request) {
+        info($request->all());
         $user = auth()->user();
         $user->update($request->validated());
         $requestToken = ltrim($request->header('authorization'), 'Bearer ');

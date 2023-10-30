@@ -25,10 +25,10 @@ return new class extends Migration
             $table->string('icon')->nullable();
             $table->string('insertion_technique')->nullable();
             $table->unsignedBigInteger('product_type_id')->nullable();
-            $table->unsignedBigInteger('product_custom_field_id')->nullable();
+            // $table->unsignedBigInteger('product_custom_field_id')->nullable();
 
-            $table->string('key')->nullable();
-            $table->text('value')->nullable();
+            // $table->string('key')->nullable();
+            // $table->text('value')->nullable();
             $table->integer('order')->nullable()->default(0);
 
             $table->timestamps();

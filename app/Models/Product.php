@@ -10,7 +10,7 @@ class Product extends BaseModel
 
     use HasTranslations; 
     public $translatable = ['value','order','name'];
-    protected $fillable = ['name','price', 'insertion_technique', 'icon', 'product_type_id','product_custom_field_id','value','order'];
+    protected $fillable = ['name','price', 'insertion_technique', 'icon', 'product_type_id'];//,'product_custom_field_id','value','order'];
 
     protected $casts = [
         'price'         => 'decimal:2',
@@ -48,8 +48,6 @@ class Product extends BaseModel
         }
     }
 
-
-
     public function pictures()
     {
         return $this->hasMany(ProductPicture::class);
@@ -72,7 +70,6 @@ class Product extends BaseModel
 
     public function saveImage(?array $attachment_ids): void
     {
-
         if ($attachment_ids) {
             $this->pictures()->delete();
             foreach ($attachment_ids as $id) {
@@ -88,8 +85,13 @@ class Product extends BaseModel
         );
     }
     
-    public function productCustomField()
+    // public function productCustomField()
+    // {
+    //     return $this->belongsTo(ProductCustomField::class);
+    // }
+
+    public function productOptions()
     {
-        return $this->belongsTo(ProductCustomField::class);
+        return $this->hasMany(ProductOptions::class, 'product_id','id');
     }
 }

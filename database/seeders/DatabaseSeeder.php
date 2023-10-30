@@ -49,5 +49,9 @@ class DatabaseSeeder extends Seeder
         $this->call(ClinicTableSeeder::class);
         $this->call(AvatarImagesTableSeeder::class);
         
+        $this->call(OptionsTableSeeder::class);
+        $this->call(ProductOptionsTableSeeder::class);
+        $this->call(ProductOptionsValuesTableSeeder::class);
+        
     }
 }

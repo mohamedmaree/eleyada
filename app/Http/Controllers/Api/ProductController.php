@@ -8,7 +8,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Traits\ResponseTrait;
 use App\Http\Resources\Api\Products\ProductsCollection;
-use App\Http\Resources\Api\Products\ProductsResource;
+use App\Http\Resources\Api\Products\ProductResource;
 
 class ProductController extends Controller
 {
@@ -20,6 +20,6 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
-        return $this->successData(new ProductsResource($product));
+        return $this->successData(new ProductResource($product));
     }
 }

@@ -2999,7 +2999,131 @@ Route::group([
             'title' => 'delete_group_of_avatarimages'
         ]);
     /*------------ end Of avatarimages ----------*/
+    
+    /*------------ start Of productoptions ----------*/
+        Route::get('productoptions', [
+            'uses'      => 'ProductOptionsController@index',
+            'as'        => 'productoptions.index',
+            'title'     => 'productoptions',
+            'icon'      => '<i class="feather icon-image"></i>',
+            'type'      => 'parent',
+            'sub_route' => false,
+            'child'     => ['productoptions.create', 'productoptions.store','productoptions.edit', 'productoptions.update', 'productoptions.show', 'productoptions.delete'  ,'productoptions.deleteAll' ,]
+        ]);
+
+        # productoptions store
+        Route::get('productoptions/create', [
+            'uses'  => 'ProductOptionsController@create',
+            'as'    => 'productoptions.create',
+            'title' => 'add_productoptions_page'
+        ]);
+
+
+        # productoptions store
+        Route::post('productoptions/store', [
+            'uses'  => 'ProductOptionsController@store',
+            'as'    => 'productoptions.store',
+            'title' => 'add_productoptions'
+        ]);
+
+        # productoptions update
+        Route::get('productoptions/{id}/edit', [
+            'uses'  => 'ProductOptionsController@edit',
+            'as'    => 'productoptions.edit',
+            'title' => 'update_productoptions_page'
+        ]);
+
+        # productoptions update
+        Route::put('productoptions/{id}', [
+            'uses'  => 'ProductOptionsController@update',
+            'as'    => 'productoptions.update',
+            'title' => 'update_productoptions'
+        ]);
+
+        # productoptions show
+        Route::get('productoptions/{id}/Show', [
+            'uses'  => 'ProductOptionsController@show',
+            'as'    => 'productoptions.show',
+            'title' => 'show_productoptions_page'
+        ]);
+
+        # productoptions delete
+        Route::delete('productoptions/{id}', [
+            'uses'  => 'ProductOptionsController@destroy',
+            'as'    => 'productoptions.delete',
+            'title' => 'delete_productoptions'
+        ]);
+        #delete all productoptions
+        Route::post('delete-all-productoptions', [
+            'uses'  => 'ProductOptionsController@destroyAll',
+            'as'    => 'productoptions.deleteAll',
+            'title' => 'delete_group_of_productoptions'
+        ]);
+    /*------------ end Of productoptions ----------*/
+    
+    /*------------ start Of productoptionsvalues ----------*/
+        Route::get('productoptionsvalues', [
+            'uses'      => 'ProductOptionsValuesController@index',
+            'as'        => 'productoptionsvalues.index',
+            'title'     => 'productoptionsvalues',
+            'icon'      => '<i class="feather icon-image"></i>',
+            'type'      => 'parent',
+            'sub_route' => false,
+            'child'     => ['productoptionsvalues.create', 'productoptionsvalues.store','productoptionsvalues.edit', 'productoptionsvalues.update', 'productoptionsvalues.show', 'productoptionsvalues.delete'  ,'productoptionsvalues.deleteAll' ,]
+        ]);
+
+        # productoptionsvalues store
+        Route::get('productoptionsvalues/create', [
+            'uses'  => 'ProductOptionsValuesController@create',
+            'as'    => 'productoptionsvalues.create',
+            'title' => 'add_productoptionsvalues_page'
+        ]);
+
+
+        # productoptionsvalues store
+        Route::post('productoptionsvalues/store', [
+            'uses'  => 'ProductOptionsValuesController@store',
+            'as'    => 'productoptionsvalues.store',
+            'title' => 'add_productoptionsvalues'
+        ]);
+
+        # productoptionsvalues update
+        Route::get('productoptionsvalues/{id}/edit', [
+            'uses'  => 'ProductOptionsValuesController@edit',
+            'as'    => 'productoptionsvalues.edit',
+            'title' => 'update_productoptionsvalues_page'
+        ]);
+
+        # productoptionsvalues update
+        Route::put('productoptionsvalues/{id}', [
+            'uses'  => 'ProductOptionsValuesController@update',
+            'as'    => 'productoptionsvalues.update',
+            'title' => 'update_productoptionsvalues'
+        ]);
+
+        # productoptionsvalues show
+        Route::get('productoptionsvalues/{id}/Show', [
+            'uses'  => 'ProductOptionsValuesController@show',
+            'as'    => 'productoptionsvalues.show',
+            'title' => 'show_productoptionsvalues_page'
+        ]);
+
+        # productoptionsvalues delete
+        Route::delete('productoptionsvalues/{id}', [
+            'uses'  => 'ProductOptionsValuesController@destroy',
+            'as'    => 'productoptionsvalues.delete',
+            'title' => 'delete_productoptionsvalues'
+        ]);
+        #delete all productoptionsvalues
+        Route::post('delete-all-productoptionsvalues', [
+            'uses'  => 'ProductOptionsValuesController@destroyAll',
+            'as'    => 'productoptionsvalues.deleteAll',
+            'title' => 'delete_group_of_productoptionsvalues'
+        ]);
+    /*------------ end Of productoptionsvalues ----------*/
     #new_routes_here
+                     
+                     
                      
                      
                      
