@@ -67,13 +67,6 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#orders" class="navbar-nav-link legitRipple" data-toggle="tab">
-                                        <i class="fa-solid fa-location-dot mr-2"></i>
-                                        {{  __('admin.orders') }}
-                                        <span class="badge badge-pill bg-primary position-static ml-auto ml-lg-2">{{ $row->orders()->count() }}</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
                                     <a href="#walletHistory" class="navbar-nav-link legitRipple" data-toggle="tab">
                                         <i class="fa-solid fa-wallet mr-2"></i>
                                         {{  __('admin.wallet_history') }}
@@ -89,7 +82,6 @@
                              <div class="col-md-8">
                                  <div class="tab-content w-100 order-2 order-md-1">
                                      @include('admin.clients.tabs.data')
-                                     @include('admin.clients.tabs.orders')
                                      @include('admin.clients.tabs.walletHistory')
 
                                  </div>

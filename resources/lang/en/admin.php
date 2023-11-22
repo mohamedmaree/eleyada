@@ -441,4 +441,5 @@ return [
     'insights'     => 'Insights',
     "insights_in_arabic"                               => "Insights in Arabic",
     "insights_in_english"                              => "Insights in English",
+    'main_symptom' => 'Main Symptom',
 ];

@@ -13,7 +13,7 @@ class ForgetPasswordRequest extends BaseApiRequest {
 
   public function rules() {
     return [
-      'code'         => 'required|max:10',
+      // 'code'         => 'required|max:10',
       // 'country_code' => 'required|exists:users,country_code',
       // 'phone'        => 'required|exists:users,phone',
       'password'     => 'required|min:6|max:100',

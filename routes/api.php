@@ -93,11 +93,15 @@ Route::group([
                 Route::post('sign-in'                      ,[AuthController::class, 'login']);
                 Route::post('doctor-sign-in'               ,[AuthController::class, 'doctorLogin']);
                 Route::delete('sign-out'                   ,[AuthController::class, 'logout']);
+                
                 Route::post('forget-password-send-code'    ,[AuthController::class, 'forgetPasswordSendCode']);
-                Route::post('doctor-forget-password-send-code'    ,[AuthController::class, 'doctorForgetPasswordSendCode']);
+                Route::post('check-code'                   ,[AuthController::class, 'checkCode']);
                 Route::post('reset-password'               ,[AuthController::class, 'resetPassword']);
+                
+                Route::post('doctor-forget-password-send-code'    ,[AuthController::class, 'doctorForgetPasswordSendCode']);
+                Route::post('doctor-check-code'             ,[AuthController::class, 'doctorCheckCode']);
                 Route::post('doctor-reset-password'        ,[AuthController::class, 'doctorResetPassword']);
-            /***************************** AuthController end *****************************/
+                /***************************** AuthController end *****************************/
         });
     
         Route::group(['middleware' => ['auth:sanctum', 'is-active']], function () {

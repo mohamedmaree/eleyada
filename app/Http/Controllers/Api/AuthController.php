@@ -10,6 +10,9 @@ use App\Http\Requests\Api\Auth\ForgetPasswordRequest;
 use App\Http\Requests\Api\Auth\DoctorForgetPasswordRequest;
 use App\Http\Requests\Api\Auth\forgetPasswordSendCodeRequest;
 use App\Http\Requests\Api\Auth\DoctorforgetPasswordSendCodeRequest;
+use App\Http\Requests\Api\Auth\checkCodeRequest;
+use App\Http\Requests\Api\Auth\DoctorCheckCodeRequest;
+
 use App\Http\Requests\Api\Auth\LoginRequest;
 use App\Http\Requests\Api\Auth\DoctorLoginRequest;
 use App\Http\Requests\Api\Auth\RegisterRequest;
@@ -248,7 +251,8 @@ class AuthController extends Controller {
         if (!$user) {
             return $this->failMsg(trans('site.user_wrong'));
         }
-        UserUpdate::updateOrCreate(['user_id' => $user->id, 'type' => 'password'], ['code' => '']);
+        $user->sendVerificationCode();
+        // UserUpdate::updateOrCreate(['user_id' => $user->id, 'type' => 'password'], ['code' => '']);
         return $this->successMsg(__('apis.success'));
     }
 
@@ -261,7 +265,36 @@ class AuthController extends Controller {
         if (!$doctor) {
             return $this->failMsg(trans('site.user_wrong'));
         }
+        $doctor->sendVerificationCode();
+
         // UserUpdate::updateOrCreate(['user_id' => $doctor->id, 'type' => 'password'], ['code' => '']);
+        return $this->successMsg(__('apis.success'));
+    }
+
+
+    public function checkCode(checkCodeRequest $request) {
+        if (!$user = User::where('email', $request['email'])
+            // ->where('country_code', $request['country_code'])
+            ->first()) {
+            return $this->failMsg(__('auth.failed'));
+        }
+
+        if (!$this->isCodeCorrect($user, $request->code)) {
+            return $this->failMsg(trans('auth.code_invalid'));
+        }
+        return $this->successMsg(__('apis.success'));
+    }
+
+    public function doctorCheckCode(DoctorCheckCodeRequest $request) {
+        if (!$doctor = Doctor::where('email', $request['email'])
+            // ->where('country_code', $request['country_code'])
+            ->first()) {
+            return $this->failMsg(__('auth.failed'));
+        }
+
+        if (!$this->isCodeCorrect($doctor, $request->code)) {
+            return $this->failMsg(trans('auth.code_invalid'));
+        }
         return $this->successMsg(__('apis.success'));
     }
 
@@ -275,9 +308,9 @@ class AuthController extends Controller {
         // if (!$update) {
         //   return $this->failMsg(trans('auth.code_invalid'));
         // }
-        if (!$this->isCodeCorrect($user, $request->code)) {
-            return $this->failMsg(trans('auth.code_invalid'));
-        }
+        // if (!$this->isCodeCorrect($user, $request->code)) {
+        //     return $this->failMsg(trans('auth.code_invalid'));
+        // }
         $user->update(['password' => $request->password, 'code' => null, 'code_expire' => null]);
         return $this->successMsg(trans('auth.password_changed'));
     }
@@ -292,9 +325,9 @@ class AuthController extends Controller {
         // if (!$update) {
         //   return $this->failMsg(trans('auth.code_invalid'));
         // }
-        if (!$this->isCodeCorrect($doctor, $request->code)) {
-            return $this->failMsg(trans('auth.code_invalid'));
-        }
+        // if (!$this->isCodeCorrect($doctor, $request->code)) {
+        //     return $this->failMsg(trans('auth.code_invalid'));
+        // }
         $doctor->update(['password' => $request->password, 'code' => null, 'code_expire' => null]);
         return $this->successMsg(trans('auth.password_changed'));
     }

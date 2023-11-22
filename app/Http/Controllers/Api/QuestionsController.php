@@ -44,6 +44,13 @@ class QuestionsController extends Controller
             auth()->user()->update(['start_pregnant_date' => $start_pregnant_date]);
           }
         }
+
+        // لو من ضمن الاجابات اجابة سؤال ماهو طول فترة الدوره الشهريه وطول فترة الحيض نقوم بتسجيله
+        if($period_cycle_length = auth()->user()->questionsAnswers()->where(['question_id' => 3])->first()){
+          if($period_length = auth()->user()->questionsAnswers()->where(['question_id' => 4])->first()){
+            auth()->user()->update(['period_cycle_length' => $period_cycle_length->answer,'period_length' => $period_length->answer]);
+          }
+        }
       return $this->successMsg(__('apis.saved_success'));
     }
 

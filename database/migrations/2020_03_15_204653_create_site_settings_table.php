@@ -84,7 +84,7 @@
                 [ 'key' => 'google_analytics'               , 'value' => ''    ],
                 [ 'key' => 'live_chat'                      , 'value' => ''    ],
                 [ 'key' => 'default_locale'                 , 'value' => 'ar' ],
-                [ 'key' => 'locales'                        , 'value' => '["en","ar"]' ],
+                [ 'key' => 'locales'                        , 'value' => '["ar","en"]' ],
                 [ 'key' => 'rtl_locales'                    , 'value' => '["ar"]' ],
                 [ 'key' => 'insights_ar'                    , 'value' => 'معلومات تهمك معلومات تهمك'      ],
                 [ 'key' => 'insights_en'                    , 'value' => 'insights for you insights for you'                ],

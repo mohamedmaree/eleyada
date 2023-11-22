@@ -9,7 +9,6 @@ use App\Http\Requests\Admin\symptoms\Update;
 use App\Models\Symptoms ;
 use App\Traits\Report;
 
-
 class SymptomsController extends Controller
 {
     public function index($id = null)
@@ -19,12 +18,14 @@ class SymptomsController extends Controller
             $html = view('admin.symptoms.table' ,compact('symptoms'))->render() ;
             return response()->json(['html' => $html]);
         }
-        return view('admin.symptoms.index');
+        $symptomes = Symptoms::latest()->get();
+        return view('admin.symptoms.index',get_defined_vars());
     }
 
     public function create()
     {
-        return view('admin.symptoms.create');
+        $symptomes = Symptoms::latest()->get();
+        return view('admin.symptoms.create',get_defined_vars());
     }
 
 
@@ -37,7 +38,8 @@ class SymptomsController extends Controller
     public function edit($id)
     {
         $symptoms = Symptoms::findOrFail($id);
-        return view('admin.symptoms.edit' , ['symptoms' => $symptoms]);
+        $symptomes = Symptoms::latest()->get();
+        return view('admin.symptoms.edit' , get_defined_vars());
     }
 
     public function update(Update $request, $id)
@@ -50,7 +52,8 @@ class SymptomsController extends Controller
     public function show($id)
     {
         $symptoms = Symptoms::findOrFail($id);
-        return view('admin.symptoms.show' , ['symptoms' => $symptoms]);
+        $symptomes = Symptoms::latest()->get();
+        return view('admin.symptoms.show' , get_defined_vars());
     }
     public function destroy($id)
     {

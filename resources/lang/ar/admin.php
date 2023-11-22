@@ -755,7 +755,7 @@ return [
     'delete_productoptionsvalues'                 => 'حذف قيم خيارات المنتجات',
     'delete_group_of_productoptionsvalues'       => 'حذف مجموعة من قيم خيارات المنتجات',
 
-    
+    'main_symptom' => 'العرض الرئيسي',
     #new_comand_translations_here
                 
                 

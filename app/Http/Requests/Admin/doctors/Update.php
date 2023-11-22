@@ -15,9 +15,8 @@ class Update extends FormRequest
     {
         return [
             'name'                  => 'required|max:191',
-            'phone'                 => 'required|numeric|unique:users,phone,'.$this->id,
-            'email'                 => 'required|email|max:191|unique:users,email,'.$this->id,
-            'type'                  => 'required_if:type,good',
+            'phone'                 => 'required|numeric|unique:doctors,phone,'.$this->id,
+            'email'                 => 'required|email|max:191|unique:doctors,email,'.$this->id,
             'password'              => ['nullable','max:191'],
             'avatar'                => ['nullable','image'],
         ];
