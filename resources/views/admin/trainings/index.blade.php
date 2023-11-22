@@ -14,44 +14,29 @@
     addbutton="{{ route('admin.trainings.create') }}" 
     deletebutton="{{ route('admin.trainings.deleteAll') }}" 
     :searchArray="[
-        'name' => [
+        'title' => [
             'input_type' => 'text' , 
             'input_name' => __('admin.name') , 
-        ] ,
-        'phone' => [
-            'input_type' => 'text' , 
-            'input_name' => __('admin.phone') , 
-        ] ,
-        'email' => [
-            'input_type' => 'text' , 
-            'input_name' => __('admin.email') , 
-        ] ,
-        'active' => [
+        ],
+        'is_paid' => [
             'input_type' => 'select' , 
             'rows'       => [
               '1' => [
-                'name' => __('admin.activate') , 
+                'name' => __('admin.paid') , 
                 'id' => 1 , 
               ],
               '2' => [
-                'name' => __('admin.dis_activate') , 
+                'name' => __('admin.free') , 
                 'id' => 0 , 
               ],
             ] , 
-            'input_name' => __('admin.phone_activation_status')  , 
+            'input_name' => __('admin.is_paid')  , 
         ] ,
-        {{-- 'country_id' => [
+        'product_id' => [
             'input_type' => 'select' , 
-            'rows'       => $countries , 
-            'input_name' => __('admin.country') , 
-        ] ,
-        'intro_fqs_category_id' => [
-            'input_type' => 'select' , 
-            'rows'       => $categories , 
-            'row_name'   => 'title' , 
-            'input_name' => __('admin.section') , 
-        ] ,
-         --}}
+            'rows'       => $products , 
+            'input_name' => __('admin.product') , 
+        ] 
     ]" 
 >
 

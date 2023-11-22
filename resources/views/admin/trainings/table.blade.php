@@ -16,10 +16,9 @@
                     </label>
                 </th>
                 <th>{{__('admin.image')}}</th>
-                <th>{{__('admin.name')}}</th>
-                <th>{{__('admin.email')}}</th>
-                <th>{{__('admin.phone')}}</th>
-                <th>{{__('admin.ban_status')}}</th>
+                <th>{{__('admin.title')}}</th>
+                <th>{{__('admin.product')}}</th>
+                <th>{{__('admin.is_paid')}}</th>
                 <th>{{__('admin.control')}}</th>
             </tr>
         </thead>
@@ -33,20 +32,9 @@
                         </label>
                     </td>
                     <td><img src="{{$training->image}}" width="30px" height="30px" alt=""></td>
-                    <td>{{ $training->name }}</td>
-                    <td>{{ $training->email }}</td>
-                    <td>{{ $training->phone }}</td>
-                    <td>
-                        @if ($training->is_blocked)
-                        <span class="btn btn-sm round btn-outline-danger">
-                            {{ __('admin.Prohibited') }} <i class="la la-close font-medium-2"></i>
-                        </span>
-                        @else
-                        <span class="btn btn-sm round btn-outline-success">
-                            {{ __('admin.Unspoken') }} <i class="la la-check font-medium-2"></i>
-                        </span>
-                        @endif
-                    </td>
+                    <td>{{ $training->title }}</td>
+                    <td>{{ $training->product->name??'' }}</td>
+                    <td>{{ $training->is_paid == 1? __('admin.yes') : __('admin.no')}}</td>
                     
                     <td class="product-action"> 
                         <span class="text-primary"><a href="{{ route('admin.trainings.show', ['id' => $training->id]) }}"><i class="feather icon-eye"></i></a></span>

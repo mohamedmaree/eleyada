@@ -756,6 +756,15 @@ return [
     'delete_group_of_productoptionsvalues'       => 'حذف مجموعة من قيم خيارات المنتجات',
 
     'main_symptom' => 'العرض الرئيسي',
+    'is_paid' =>'حالة الدفع',
+    'paid'  => 'مدفوع',
+    'free'  => 'مجاني',
+    'yes' =>'نعم',
+    'no' =>'لا',
+    'topics'  => ' المواضيع',
+    'link_to_order' => 'رابط الطلب',
+    'video'   => 'الفيديو',
+
     #new_comand_translations_here
                 
                 

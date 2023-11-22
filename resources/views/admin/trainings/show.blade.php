@@ -12,7 +12,123 @@
                 <div class="card-content">
                     <div class="card-body">
                         <form  class="show form-horizontal" >
-                           {{-- training edit form section form body here --}}
+                            <div class="form-body">
+                                <div class="row">
+                                    
+                                    {{-- to create languages tabs uncomment that --}}
+                                    <div class="col-12">
+                                        <div class="col-12">
+                                            <ul class="nav nav-tabs  mb-3">
+                                                    @foreach (languages() as $lang)
+                                                        <li class="nav-item">
+                                                            <a class="nav-link @if($loop->first) active @endif"  data-toggle="pill" href="#first_{{$lang}}" aria-expanded="true">{{  __('admin.data') }} {{ $lang }}</a>
+                                                        </li>
+                                                    @endforeach
+                                            </ul>
+                                        </div> 
+
+                                        <div class="col-12">
+                                            <div class="imgMontg col-12 text-center">
+                                                <div class="dropBox">
+                                                    <div class="textCenter">
+                                                        <div class="imagesUploadBlock">
+                                                            <label class="uploadImg">
+                                                                <span><i class="feather icon-image"></i></span>
+                                                                <input type="file" accept="image/*" name="image" class="imageUploader">
+                                                            </label>
+                                                            <div class="uploadedBlock">
+                                                                <img src="{{$training->image}}">
+                                                                <button class="close"><i class="feather icon-x"></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="tab-content">
+                                                @foreach (languages() as $lang)
+                                                    <div role="tabpanel" class="tab-pane fade @if($loop->first) show active @endif " id="first_{{$lang}}" aria-labelledby="first_{{$lang}}" aria-expanded="true">
+                                                        <div class="col-md-12 col-12">
+                                                            <div class="form-group">
+                                                                <label for="first-name-column">{{__('admin.title')}} {{ $lang }}</label>
+                                                                <div class="controls">
+                                                                    <input type="text" value="{{$training->getTranslations('title')[$lang]??''}}" name="title[{{$lang}}]" class="form-control" placeholder="{{__('admin.write') . __('admin.title')}} {{ $lang }}" required data-validation-required-message="{{__('admin.this_field_is_required')}}" >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <div class="controls">
+                                                                    <label for="account-name">{{__('admin.description')}} {{ $lang }}</label>
+                                                                    <textarea class="form-control" name="description[{{$lang}}]" id="" cols="30" rows="10" placeholder="{{__('admin.write') . __('admin.description')}} {{ $lang }} ">{{$training->getTranslations('description')[$lang]??''}}</textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <div class="controls">
+                                                                    <label for="account-name">{{__('admin.topics')}} {{ $lang }}</label>
+                                                                    <textarea class="form-control" name="topics[{{$lang}}]" id="" cols="30" rows="10"  placeholder="{{__('admin.write') . __('admin.topics')}} {{ $lang }} ">{{$training->getTranslations('topics')[$lang]??''}}</textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                            <div class="col-md-12 col-12">
+                                                <div class="form-group">
+                                                    <label for="first-name-column">{{ __('admin.link_to_order') }}</label>
+                                                    <div class="controls">
+                                                        <input type="text" name="link_to_order" value="{{ $training->link_to_order }}" class="form-control" placeholder="{{ __('admin.link_to_order') }}" >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-12">
+                                                <div class="form-group">
+                                                    <label for="first-name-column">{{ __('admin.video') }}</label>
+                                                    <div class="controls">
+                                                        <input type="text" name="video"  value="{{ $training->video }}" class="form-control" placeholder="{{ __('admin.video') }}" >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           
+
+
+                                            <div class="col-md-12 col-12">
+                                                <div class="form-group">
+                                                    <label for="first-name-column">{{ __('admin.is_paid') }}</label>
+                                                    <div class="controls">
+                                                        <select name="is_paid" class="select2 form-control" required data-validation-required-message="{{ __('admin.this_field_is_required') }}">
+                                                            <option value>{{ __('admin.is_paid') }}</option>
+                                                            <option value="1" {{$training->is_paid == 1 ? 'selected' : ''}}>{{ __('admin.paid') }}</option>
+                                                            <option value="0" {{$training->is_paid == 0 ? 'selected' : ''}}>{{ __('admin.free') }}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-12">
+                                            <div class="form-group">
+                                                <label for="first-name-column">{{__('admin.product')}}</label>
+                                                <div class="controls">
+                                                    <select name="product_id" class="select2 form-control" >
+                                                        <option value>{{__('admin.product')}}</option>
+                                                        @foreach ($products as $product)
+                                                            <option value="{{$product->id}}" {{$product->id == $training->product_id ? 'selected' : ''}} >{{$product->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    {{--  to create languages tabs uncomment that --}}
+                                    </div>
+                                    
+                                    <div class="col-12 d-flex justify-content-center mt-3">
+                                        <a href="{{ url()->previous() }}" type="reset" class="btn btn-outline-warning mr-1 mb-1">{{__('admin.back')}}</a>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>

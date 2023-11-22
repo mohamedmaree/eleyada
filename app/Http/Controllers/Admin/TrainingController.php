@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\trainings\Store;
 use App\Http\Requests\Admin\trainings\Update;
 use App\Models\Training ;
+use App\Models\Product ;
 use App\Traits\Report;
 
 
@@ -19,12 +20,14 @@ class TrainingController extends Controller
             $html = view('admin.trainings.table' ,compact('trainings'))->render() ;
             return response()->json(['html' => $html]);
         }
-        return view('admin.trainings.index');
+        $products = Product::latest()->get();
+        return view('admin.trainings.index',get_defined_vars());
     }
 
     public function create()
     {
-        return view('admin.trainings.create');
+        $products = Product::latest()->get();
+        return view('admin.trainings.create',get_defined_vars());
     }
 
 
@@ -37,7 +40,8 @@ class TrainingController extends Controller
     public function edit($id)
     {
         $training = Training::findOrFail($id);
-        return view('admin.trainings.edit' , ['training' => $training]);
+        $products = Product::latest()->get();
+        return view('admin.trainings.edit' ,get_defined_vars());
     }
 
     public function update(Update $request, $id)
@@ -50,7 +54,8 @@ class TrainingController extends Controller
     public function show($id)
     {
         $training = Training::findOrFail($id);
-        return view('admin.trainings.show' , ['training' => $training]);
+        $products = Product::latest()->get();
+        return view('admin.trainings.show',get_defined_vars());
     }
     public function destroy($id)
     {

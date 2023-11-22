@@ -442,4 +442,12 @@ return [
     "insights_in_arabic"                               => "Insights in Arabic",
     "insights_in_english"                              => "Insights in English",
     'main_symptom' => 'Main Symptom',
+    'is_paid' =>'Payment Status',
+    'paid'  => 'Paid',
+    'free'  => 'Free',
+    'yes' =>'Yes',
+    'no' =>'No',
+    'topics'  => ' Topics',
+    'link_to_order' => 'Link To Order',
+    'video'   => 'video',
 ];
