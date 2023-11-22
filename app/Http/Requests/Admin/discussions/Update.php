@@ -14,12 +14,12 @@ class Update extends FormRequest
     public function rules()
     {
         return [
-            'name'                  => 'required|max:191',
-            'phone'                 => 'required|numeric|unique:users,phone,'.$this->id,
-            'email'                 => 'required|email|max:191|unique:users,email,'.$this->id,
-            'type'                  => 'required_if:type,good',
-            'password'              => ['nullable','max:191'],
-            'avatar'                => ['nullable','image'],
+            'title.*'          => 'required|max:191',
+            'topics.*'         => 'nullable',
+            'status'           => 'required',
+            'speaker_name'     => 'required',
+            'discussion_link'  => 'required',
+            'image'            => 'nullable|image',
         ];
     }
 }

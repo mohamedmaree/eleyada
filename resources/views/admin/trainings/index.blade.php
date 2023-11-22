@@ -16,7 +16,7 @@
     :searchArray="[
         'title' => [
             'input_type' => 'text' , 
-            'input_name' => __('admin.name') , 
+            'input_name' => __('admin.title') , 
         ],
         'is_paid' => [
             'input_type' => 'select' , 

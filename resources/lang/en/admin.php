@@ -450,4 +450,9 @@ return [
     'topics'  => ' Topics',
     'link_to_order' => 'Link To Order',
     'video'   => 'video',
+    'speaker_name' => 'Speaker',
+    'live'   => 'Live',
+    'past'   => 'Past',
+    'upcoming'   => 'Upcoming',
+    'discussion_link'  => 'Discussion Link',
 ];

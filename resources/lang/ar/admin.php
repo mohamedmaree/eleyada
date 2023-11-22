@@ -764,6 +764,11 @@ return [
     'topics'  => ' المواضيع',
     'link_to_order' => 'رابط الطلب',
     'video'   => 'الفيديو',
+    'speaker_name' => 'المحاضر',
+    'live'   => 'مباشر',
+    'past'   => 'منتهي',
+    'upcoming'   => 'قادم',
+    'discussion_link'  => 'رابط المناقشة',
 
     #new_comand_translations_here
                 

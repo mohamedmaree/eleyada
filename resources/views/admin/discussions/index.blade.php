@@ -14,44 +14,32 @@
     addbutton="{{ route('admin.discussions.create') }}" 
     deletebutton="{{ route('admin.discussions.deleteAll') }}" 
     :searchArray="[
-        'name' => [
+        'title' => [
             'input_type' => 'text' , 
-            'input_name' => __('admin.name') , 
+            'input_name' => __('admin.title') , 
         ] ,
-        'phone' => [
+        'speaker_name' => [
             'input_type' => 'text' , 
-            'input_name' => __('admin.phone') , 
+            'input_name' => __('admin.speaker_name') , 
         ] ,
-        'email' => [
-            'input_type' => 'text' , 
-            'input_name' => __('admin.email') , 
-        ] ,
-        'active' => [
+        'status' => [
             'input_type' => 'select' , 
             'rows'       => [
               '1' => [
-                'name' => __('admin.activate') , 
-                'id' => 1 , 
+                'name' => __('admin.live') , 
+                'id' => 'live' , 
               ],
               '2' => [
-                'name' => __('admin.dis_activate') , 
-                'id' => 0 , 
+                'name' => __('admin.past') , 
+                'id' => 'past' , 
+              ],
+              '3' => [
+                'name' => __('admin.upcoming') , 
+                'id' => 'upcoming' , 
               ],
             ] , 
-            'input_name' => __('admin.phone_activation_status')  , 
+            'input_name' => __('admin.status')  , 
         ] ,
-        {{-- 'country_id' => [
-            'input_type' => 'select' , 
-            'rows'       => $countries , 
-            'input_name' => __('admin.country') , 
-        ] ,
-        'intro_fqs_category_id' => [
-            'input_type' => 'select' , 
-            'rows'       => $categories , 
-            'row_name'   => 'title' , 
-            'input_name' => __('admin.section') , 
-        ] ,
-         --}}
     ]" 
 >
 
