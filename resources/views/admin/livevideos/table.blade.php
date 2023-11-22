@@ -16,10 +16,10 @@
                     </label>
                 </th>
                 <th>{{__('admin.image')}}</th>
-                <th>{{__('admin.name')}}</th>
-                <th>{{__('admin.email')}}</th>
-                <th>{{__('admin.phone')}}</th>
-                <th>{{__('admin.ban_status')}}</th>
+                <th>{{__('admin.title')}}</th>
+                <th>{{__('admin.speaker_name')}}</th>
+                <th>{{__('admin.discussion_link')}}</th>
+                <th>{{__('admin.status')}}</th>
                 <th>{{__('admin.control')}}</th>
             </tr>
         </thead>
@@ -33,20 +33,10 @@
                         </label>
                     </td>
                     <td><img src="{{$livevideo->image}}" width="30px" height="30px" alt=""></td>
-                    <td>{{ $livevideo->name }}</td>
-                    <td>{{ $livevideo->email }}</td>
-                    <td>{{ $livevideo->phone }}</td>
-                    <td>
-                        @if ($livevideo->is_blocked)
-                        <span class="btn btn-sm round btn-outline-danger">
-                            {{ __('admin.Prohibited') }} <i class="la la-close font-medium-2"></i>
-                        </span>
-                        @else
-                        <span class="btn btn-sm round btn-outline-success">
-                            {{ __('admin.Unspoken') }} <i class="la la-check font-medium-2"></i>
-                        </span>
-                        @endif
-                    </td>
+                    <td>{{ $livevideo->title }}</td>
+                    <td>{{ $livevideo->speaker_name }}</td>
+                    <td>{{ $livevideo->link }}</td>
+                    <td>{{ __('admin.'.$livevideo->status) }}</td>
                     
                     <td class="product-action"> 
                         <span class="text-primary"><a href="{{ route('admin.livevideos.show', ['id' => $livevideo->id]) }}"><i class="feather icon-eye"></i></a></span>

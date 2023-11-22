@@ -455,4 +455,7 @@ return [
     'past'   => 'Past',
     'upcoming'   => 'Upcoming',
     'discussion_link'  => 'Discussion Link',
+    'text' => 'Text',
+    'content' => ' Content',
+    'product_link' => 'Product Link',
 ];

@@ -769,6 +769,9 @@ return [
     'past'   => 'منتهي',
     'upcoming'   => 'قادم',
     'discussion_link'  => 'رابط المناقشة',
+    'text' => 'نص',
+    'content' => ' المحتوي',
+    'product_link' => 'رابط المنتج',
 
     #new_comand_translations_here
                 
