@@ -8,8 +8,26 @@
 
 @section('content')
 <!-- // Basic multiple Column Form section start -->
+<form  method="POST" action="{{route('admin.clients.store')}}" class="store form-horizontal" novalidate>
 <section id="multiple-column-form">
-    <div class="row match-height">
+    <div class="row">
+        {{-- <div class="col-md-3">
+            <div class="col-12 card card-body">
+                <div class="imgMontg col-12 text-center">
+                    <div class="dropBox">
+                        <div class="textCenter">
+                            <div class="imagesUploadBlock">
+                                <label class="uploadImg">
+                                    <span><i class="feather icon-image"></i></span>
+                                    <input type="file" accept="image/*" name="image" class="imageUploader">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> --}}
+
         <div class="col-12">
             <div class="card">
                 {{-- <div class="card-header">
@@ -17,24 +35,9 @@
                 </div> --}}
                 <div class="card-content">
                     <div class="card-body">
-                        <form  method="POST" action="{{route('admin.clients.store')}}" class="store form-horizontal" novalidate>
                             @csrf
                             <div class="form-body">
                                 <div class="row">
-                                    <div class="col-12">
-                                        <div class="imgMontg col-12 text-center">
-                                            <div class="dropBox">
-                                                <div class="textCenter">
-                                                    <div class="imagesUploadBlock">
-                                                        <label class="uploadImg">
-                                                            <span><i class="feather icon-image"></i></span>
-                                                            <input type="file" accept="image/*" name="image" class="imageUploader">
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
 
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
@@ -47,11 +50,27 @@
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="first-name-column">{{__('admin.phone_number')}}</label>
-                                            <div class="controls">
-                                                <input type="number" name="phone" class="form-control" placeholder="{{__('admin.enter_phone_number')}}" required data-validation-required-message="{{__('admin.this_field_is_required')}}" data-validation-number-message="{{__('admin.the_phone_number_ must_not_have_charachters_or_symbol')}}"  >
+                                            <div class="row">
+                                                <div class="col-md-4 col-12">
+                                                    <select name="country_code" class="form-control select2">
+                                                        @foreach($countries as $country)
+                                                            <option value="{{ $country->key }}"
+                                                                @if ($settings['default_country'] == $country->id)
+                                                                    selected
+                                                                @endif >
+                                                            {{ '+'.$country->key }}{{ $country->flag}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                <div class="col-md-8 col-12">
+                                                    <div class="controls">
+                                                        <input type="number" name="phone" class="form-control" placeholder="{{__('admin.enter_phone_number')}}" required data-validation-required-message="{{__('admin.this_field_is_required')}}" data-validation-number-message="{{__('admin.the_phone_number_ must_not_have_charachters_or_symbol')}}"  >
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="first-name-column">{{ __('admin.email')}}</label>
@@ -68,15 +87,27 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="first-name-column">{{__('admin.phone_activation_status')}}</label>
+                                            <div class="controls">
+                                                <select name="active" class="select2 form-control"  >
+                                                    <option value>{{__('admin.phone_activation_status')}}</option>
+                                                    <option value="1" selected>{{__('admin.activate')}}</option>
+                                                    <option value="0">{{__('admin.dis_activate')}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                    <div class="col-md-12 col-12">
+                                    <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="first-name-column">{{__('admin.Validity')}}</label>
                                             <div class="controls">
-                                                <select name="is_blocked" class="select2 form-control" required data-validation-required-message="{{__('admin.this_field_is_required')}}" >
+                                                <select name="is_blocked" class="select2 form-control"  >
                                                     <option value>{{__('admin.Select_the_blocking_status')}}</option>
                                                     <option value="1">{{__('admin.Prohibited')}}</option>
-                                                    <option value="0">{{__('admin.Unspoken')}}</option>
+                                                    <option value="0" selected>{{__('admin.Unspoken')}}</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -88,13 +119,13 @@
                                     </div>
                                 </div>
                             </div>
-                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+</form>
 
 @endsection
 @section('js')

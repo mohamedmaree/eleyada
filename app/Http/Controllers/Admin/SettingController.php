@@ -10,6 +10,7 @@ use App\Services\SettingService;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Cache;
+use App\Models\Country ;
 
 class SettingController extends Controller
 {
@@ -17,7 +18,8 @@ class SettingController extends Controller
         $data = Cache::rememberForever('settings', function () {
             return SettingService::appInformations(SiteSetting::pluck('value', 'key'));
         });
-        return view('admin.settings.index',compact('data'));
+        $countries = Country::orderBy('id','ASC')->get();
+        return view('admin.settings.index',compact('data','countries'));
     }
 
 
@@ -38,7 +40,7 @@ class SettingController extends Controller
                 }
                 $img->save($thumbsPath);
             }else if($val){
-                SiteSetting::where( 'key', $key ) -> update( [ 'value' => $val ] );
+                SiteSetting::updateOrCreate(['key' => $key],['key' => $key,'value' => $val]);
             }
         }
         if ($request->is_production) {

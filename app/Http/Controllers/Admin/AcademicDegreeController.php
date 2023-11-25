@@ -9,7 +9,6 @@ use App\Http\Requests\Admin\academicdegrees\Update;
 use App\Models\AcademicDegree ;
 use App\Traits\Report;
 
-
 class AcademicDegreeController extends Controller
 {
     public function index($id = null)

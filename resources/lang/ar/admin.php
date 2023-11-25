@@ -772,6 +772,20 @@ return [
     'text' => 'نص',
     'content' => ' المحتوي',
     'product_link' => 'رابط المنتج',
+    'sort' => 'الترتيب',
+    'baby_weight' => 'وزن الطفل',
+    'baby_height' => 'طول الطفل',
+    'mother_info' => ' معلومات الأم',
+    'baby_info'   => ' معلومات الطفل',
+    'profile_complete' => 'اكتمال الملف الشخصي',
+    'countries_currencies' => 'الدول والعملات',
+    'supported_countries'  => 'الدول المدعومة',
+    'default_country'      => 'الدولة الافتراضية',
+    'supported_currencies'  => 'العملات المدعومة',
+    'default_currency'     => 'العمله الافتراضية',
+    'currency'  => ' العملة',
+    'currency_code'  => 'رمز العملة',
+    'identity_proof' => 'صورة الهوية',
 
     #new_comand_translations_here
                 

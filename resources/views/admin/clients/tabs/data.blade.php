@@ -1,6 +1,6 @@
 <div class="tab-pane fade active show" id="data">
     <div class="row">
-    <div class="col-6">
+    <div class="col-12">
         <div class="imgMontg col-12 text-center">
             <div class="dropBox">
                 <div class="textCenter">
@@ -31,8 +31,23 @@
     <div class="col-md-6 col-12">
         <div class="form-group">
             <label for="first-name-column">{{__('admin.phone_number')}}</label>
-            <div class="controls">
-                <input type="number" name="phone" value="{{'0'.$row->phone}}" class="form-control" placeholder="{{__('admin.enter_phone_number')}}" required  data-validation-required-message="{{__('admin.this_field_is_required')}}" data-validation-number-message="{{__('admin.the_phone_number_ must_not_have_charachters_or_symbol')}}" disabled>
+            <div class="row">
+                <div class="col-md-4 col-12">
+                    <select name="country_code" class="form-control select2" disabled>
+                        @foreach($countries as $country)
+                            <option value="{{ $country->key }}"
+                                @if ($row->country_code == $country->key)
+                                    selected
+                                @endif >
+                            {{ '+'.$country->key }}{{ $country->flag}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-md-8 col-12">
+                    <div class="controls">
+                        <input type="number" name="phone" value="{{$row->phone}}"  class="form-control" placeholder="{{__('admin.enter_phone_number')}}" required data-validation-required-message="{{__('admin.this_field_is_required')}}" data-validation-number-message="{{__('admin.the_phone_number_ must_not_have_charachters_or_symbol')}}"  disabled>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -45,22 +60,28 @@
         </div>
     </div>
 
-
- 
     <div class="col-md-6 col-12">
         <div class="form-group">
-            <label for="first-name-column">{{__('admin.Validity')}}</label>
+            <label for="first-name-column">{{__('admin.phone_activation_status')}}</label>
             <div class="controls">
-                <input type="text" name="is_blocked" value="{{$row->is_blocked == 1 ? __('admin.Prohibited') : __('admin.Unspoken') }}" class="form-control" disabled >
+                <select name="active" class="select2 form-control" disabled >
+                    <option value>{{__('admin.phone_activation_status')}}</option>
+                    <option value="1" {{$row->active == 1 ? 'selected':''}}>{{__('admin.activate')}}</option>
+                    <option value="0" {{$row->active == 0 ? 'selected':''}}>{{__('admin.dis_activate')}}</option>
+                </select>
             </div>
         </div>
     </div>
 
     <div class="col-md-6 col-12">
         <div class="form-group">
-            <label for="first-name-column">{{__('admin.activation')}}</label>
+            <label for="first-name-column">{{__('admin.Validity')}}</label>
             <div class="controls">
-                <input type="text" name="active" value="{{$row->is_blocked == 1 ? __('admin.activate') : __('admin.dis_activate') }}" class="form-control" disabled >
+                <select name="is_blocked" class="select2 form-control" disabled>
+                    <option value>{{__('admin.Select_the_blocking_status')}}</option>
+                    <option {{$row->is_blocked == 1 ? 'selected' : ''}} value="1">{{__('admin.Prohibited')}}</option>
+                    <option {{$row->is_blocked == 0 ? 'selected' : ''}} value="0">{{__('admin.Unspoken')}}</option>
+                </select>
             </div>
         </div>
     </div>

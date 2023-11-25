@@ -40,18 +40,21 @@
             ] , 
             'input_name' => __('admin.phone_activation_status')  , 
         ] ,
-        {{-- 'country_id' => [
+        'country_id' => [
             'input_type' => 'select' , 
             'rows'       => $countries , 
             'input_name' => __('admin.country') , 
         ] ,
-        'intro_fqs_category_id' => [
+        'speciality_id' => [
             'input_type' => 'select' , 
-            'rows'       => $categories , 
-            'row_name'   => 'title' , 
-            'input_name' => __('admin.section') , 
+            'rows'       => $specialities , 
+            'input_name' => __('admin.speciality') , 
         ] ,
-         --}}
+        'academic_degree_id' => [
+            'input_type' => 'select' , 
+            'rows'       => $academic_degrees , 
+            'input_name' => __('admin.academicdegree') , 
+        ] ,
     ]" 
 >
 

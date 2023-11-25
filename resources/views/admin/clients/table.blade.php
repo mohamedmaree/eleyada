@@ -36,7 +36,7 @@
                 <td><img src="{{$row->image}}" width="30px" height="30px" alt=""></td>
                 <td>{{ $row->name }}</td>
                 <td>{{ $row->email }}</td>
-                <td>{{ '0'.$row->phone }}</td>
+                <td>{{ $row->phone }}</td>
                 <td>
                     @if ($row->is_blocked)
                         <span class="btn btn-sm round btn-outline-danger">
@@ -62,27 +62,18 @@
                     @endif
                 </td>
                 <td class="product-action">
-                    <span class="text-primary"><a
-                        href="{{ route('admin.clients.show', ['id' => $row->id]) }}"><i
-                        class="feather icon-eye"></i></a></span>
-                    <span class="action-edit text-primary"><a
-                        href="{{ route('admin.clients.edit', ['id' => $row->id]) }}"><i
-                        class="feather icon-edit"></i></a></span>
-                     <span data-toggle="modal" data-target="#notify" class="text-info notify"
-                        data-id="{{ $row->id }}"
-                        data-url="{{ url('admins/clients/notify') }}"><i
-                        class="feather icon-bell"></i></span>
-                    {{--<span data-toggle="modal" data-target="#mail" class="text-info mail"
+                    <span class="text-primary"><a href="{{ route('admin.clients.show', ['id' => $row->id]) }}" class="btn btn-warning btn-sm"><i class="feather icon-eye"></i></a></span>
+                    <span class="action-edit text-primary"><a href="{{ route('admin.clients.edit', ['id' => $row->id]) }}" class="btn btn-primary btn-sm"><i class="feather icon-edit"></i></a></span>
+                     <span data-toggle="modal" data-target="#notify" class="notify btn btn-info btn-sm" data-id="{{ $row->id }}" data-url="{{ url('admins/clients/notify') }}"><i class="feather icon-bell"></i></span>
+                    {{--<span data-toggle="modal" data-target="#mail" class=" mail"
                         data-id="{{ $row->id }}"
                         data-url="{{ url('admins/clients/notify') }}"><i
                         class="feather icon-mail"></i></span>
-                    <span data-toggle="modal" data-target="#sms" class="text-info sms"
+                    <span data-toggle="modal" data-target="#sms" class=" sms"
                         data-id="{{ $row->id }}"
                         data-url="{{ url('admins/clients/notify') }}"><i
                         class="feather icon-phone"></i></span> --}}
-                    <span class="delete-row text-danger"
-                        data-url="{{ url('admin/clients/' . $row->id) }}"><i
-                        class="feather icon-trash"></i></span>
+                    <span class="delete-row btn btn-danger btn-sm" data-url="{{ url('admin/clients/' . $row->id) }}"><i class="feather icon-trash"></i></span>
                 </td>
                 </tr>
             @endforeach

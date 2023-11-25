@@ -25,10 +25,12 @@ class Update extends FormRequest
     {
         return [
             'name'     => 'required|max:191',
-            'is_blocked'  => 'required',
-            'phone'    => 'required|min:10|unique:users,phone,' . $this->id,
-            'email'    => 'required|email|max:191|unique:users,email,' . $this->id,
+            'country_code' => 'required',
+            'phone'    => 'required|min:8||unique:users,phone,'.$this->id.',id,deleted_at,NULL',
+            'email'    => 'required|email|max:191|unique:users,email,'.$this->id.',id,deleted_at,NULL',
             'password' => ['nullable', 'min:6'],
+            'is_blocked'  => 'nullable',
+            'active'  => 'nullable',
             'image'   => ['nullable', 'image'],
         ];
     }

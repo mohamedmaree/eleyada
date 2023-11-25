@@ -15,7 +15,7 @@ class PregnantWeeksInfoController extends Controller
     public function index($id = null)
     {
         if (request()->ajax()) {
-            $pregnantweeksinfos = PregnantWeeksInfo::search(request()->searchArray)->paginate(30);
+            $pregnantweeksinfos = PregnantWeeksInfo::search(request()->searchArray)->orderBy('order','DESC')->paginate(30);
             $html = view('admin.pregnantweeksinfos.table' ,compact('pregnantweeksinfos'))->render() ;
             return response()->json(['html' => $html]);
         }

@@ -75,6 +75,10 @@ class SettingService {
            'default_locale'             =>$app_info['default_locale'],
            'locales'                    =>$app_info['locales'],
            'rtl_locales'                =>$app_info['rtl_locales'],
+           'default_country'            =>$app_info['default_country'],
+           'countries'                  =>$app_info['countries'],
+           'default_currency'           =>$app_info['default_currency'],
+           'currencies'                 =>$app_info['currencies'],
            'insights_ar'                =>$app_info['insights_ar'],
            'insights_en'                =>$app_info['insights_en'],
         ];

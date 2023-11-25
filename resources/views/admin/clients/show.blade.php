@@ -2,13 +2,11 @@
 @section('css')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" integrity="sha512-nNlU0WK2QfKsuEmdcTwkeh+lhGs6uyOxuUs+n+0oXSYDok5qy0EI0lt01ZynHq6+p/tbgpZ7P+yUb+r71wqdXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/css/clients.css')}}">
-
     <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/css/datatable-responsive.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/css/datatable.min.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
           integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
-    َ
     <link rel="stylesheet" type="text/css" href="{{asset('admin/app-assets/vendors/css/extensions/sweetalert2.min.css')}}">
 @endsection
 @section('content')
@@ -32,7 +30,7 @@
                                 </a>
                             </div>
                             <div class="media-body text-white">
-                                <h1 class="mb-1">{{  __('admin.name') }} : {{ $row->name }}</h1>
+                                <h1 class="mb-1"> {{ $row->name }}</h1>
                                 {{-- <span class="d-block mb-1">{{  __('admin.city') }} : {{ $row->city->name??'' }}</span> --}}
                                 {{-- <span class="d-block ">
                                     <i class="fa-regular fa-star font-size-base {{ $row->rate > 0 ? 'active' : '' }}"></i>
@@ -66,13 +64,13 @@
                                         {{  __('admin.data_user') }}
                                     </a>
                                 </li>
-                                <li class="nav-item">
+                                {{-- <li class="nav-item">
                                     <a href="#walletHistory" class="navbar-nav-link legitRipple" data-toggle="tab">
                                         <i class="fa-solid fa-wallet mr-2"></i>
                                         {{  __('admin.wallet_history') }}
                                         <span class="badge badge-pill bg-primary position-static ml-auto ml-lg-2">{{ $row->transactions()->count() }}</span>
                                     </a>
-                                </li>
+                                </li> --}}
                             </ul>
                         </div>
                     </div>
@@ -82,14 +80,14 @@
                              <div class="col-md-8">
                                  <div class="tab-content w-100 order-2 order-md-1">
                                      @include('admin.clients.tabs.data')
-                                     @include('admin.clients.tabs.walletHistory')
+                                     {{-- @include('admin.clients.tabs.walletHistory') --}}
 
                                  </div>
                              </div>
                             <div class="col-md-4">
                                 <div  class="sidebar sidebar-light bg-transparent sidebar-component sidebar-component-right  border-0 shadow-0 order-1 order-lg-2 sidebar-expand-md">
                                 <div class="sidebar-content">
-                                    <div class="card border-left-3 border-left-success rounded-left-0">
+                                    {{-- <div class="card border-left-3 border-left-success rounded-left-0">
                                         <div class="card-header bg-transparent header-elements-inline">
                                             <span class="card-title font-weight-semibold">{{  __('admin.add_or_deduct_balance') }}</span>
                                         </div>
@@ -103,9 +101,9 @@
                                                 </div>
                                             </form>
                                         </div>
-                                    </div>
+                                    </div> --}}
 
-                                    <div class="card border-left-3 border-left-success rounded-left-0">
+                                    {{-- <div class="card border-left-3 border-left-success rounded-left-0">
                                         <div class="card-header bg-transparent header-elements-inline">
                                             <span class="card-title font-weight-semibold">{{  __('admin.wallet') }}</span>
                                         </div>
@@ -119,7 +117,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                     <div class="card border-left-3 border-left-primary rounded-left-0">
                                         <div class="card-header bg-transparent header-elements-inline">
                                             <span class="card-title font-weight-semibold">{{  __('admin.send_notify') }}</span>

@@ -8,7 +8,10 @@ use App\Http\Requests\Admin\doctors\Store;
 use App\Http\Requests\Admin\doctors\Update;
 use App\Models\Doctor ;
 use App\Traits\Report;
-
+use App\Models\Country ;
+use App\Models\SiteSetting;
+use App\Models\Speciality ;
+use App\Models\AcademicDegree ;
 
 class DoctorController extends Controller
 {
@@ -19,12 +22,22 @@ class DoctorController extends Controller
             $html = view('admin.doctors.table' ,compact('doctors'))->render() ;
             return response()->json(['html' => $html]);
         }
-        return view('admin.doctors.index');
+        $specialities = Speciality::orderBy('name','ASC')->get() ; 
+        $academic_degrees = AcademicDegree::orderBy('name','ASC')->get() ; 
+        $supported_countries = SiteSetting::where('key','countries')->first()->value??'';
+        $supported_countries = json_decode($supported_countries);
+        $countries = Country::whereIn('id',$supported_countries??[])->orderBy('id','ASC')->get();
+        return view('admin.doctors.index',get_defined_vars());
     }
 
     public function create()
     {
-        return view('admin.doctors.create');
+        $specialities = Speciality::orderBy('name','ASC')->get(); 
+        $academic_degrees = AcademicDegree::orderBy('name','ASC')->get(); 
+        $supported_countries = SiteSetting::where('key','countries')->first()->value??'';
+        $supported_countries = json_decode($supported_countries);
+        $countries = Country::whereIn('id',$supported_countries??[])->orderBy('id','ASC')->get();
+        return view('admin.doctors.create',get_defined_vars());
     }
 
 
@@ -36,8 +49,13 @@ class DoctorController extends Controller
     }
     public function edit($id)
     {
-        $doctor = Doctor::findOrFail($id);
-        return view('admin.doctors.edit' , ['doctor' => $doctor]);
+        $row = Doctor::findOrFail($id);
+        $specialities = Speciality::orderBy('name','ASC')->get(); 
+        $academic_degrees = AcademicDegree::orderBy('name','ASC')->get(); 
+        $supported_countries = SiteSetting::where('key','countries')->first()->value??'';
+        $supported_countries = json_decode($supported_countries);
+        $countries = Country::whereIn('id',$supported_countries??[])->orderBy('id','ASC')->get();
+        return view('admin.doctors.edit',get_defined_vars());
     }
 
     public function update(Update $request, $id)
@@ -49,9 +67,15 @@ class DoctorController extends Controller
 
     public function show($id)
     {
-        $doctor = Doctor::findOrFail($id);
-        return view('admin.doctors.show' , ['doctor' => $doctor]);
+        $row = Doctor::findOrFail($id);
+        $specialities = Speciality::orderBy('name','ASC')->get(); 
+        $academic_degrees = AcademicDegree::orderBy('name','ASC')->get();
+        $supported_countries = SiteSetting::where('key','countries')->first()->value??'';
+        $supported_countries = json_decode($supported_countries);
+        $countries = Country::whereIn('id',$supported_countries??[])->orderBy('id','ASC')->get(); 
+        return view('admin.doctors.show',get_defined_vars());
     }
+
     public function destroy($id)
     {
         $doctor = Doctor::findOrFail($id)->delete();

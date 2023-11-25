@@ -24,7 +24,7 @@
                                 <div class="row">
                                     
                                     {{-- to create languages tabs uncomment that --}}
-                                    {{-- <div class="col-12">
+                                    <div class="col-12">
                                         <div class="col-12">
                                             <ul class="nav nav-tabs  mb-3">
                                                     @foreach (languages() as $lang)
@@ -33,7 +33,7 @@
                                                         </li>
                                                     @endforeach
                                             </ul>
-                                        </div>  --}}
+                                        </div> 
 
                                         <div class="col-12">
                                             <div class="imgMontg col-12 text-center">
@@ -53,8 +53,17 @@
                                                 </div>
                                             </div>
                                         </div>
-
-                                        {{-- <div class="tab-content">
+                                        <div class="col-md-12 col-12">
+                                            <div class="form-group">
+                                                <label for="first-name-column">{{ __('admin.sort') }}</label>
+                                                <div class="controls">
+                                                    <input type="number" name="order" value="{{$pregnantweeksinfo->order}}" class="form-control"
+                                                        placeholder="{{ __('admin.sort') }}" required
+                                                        data-validation-required-message="{{ __('admin.this_field_is_required') }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-content">
                                                 @foreach (languages() as $lang)
                                                     <div role="tabpanel" class="tab-pane fade @if($loop->first) show active @endif " id="first_{{$lang}}" aria-labelledby="first_{{$lang}}" aria-expanded="true">
                                                         <div class="col-md-12 col-12">
@@ -65,68 +74,50 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <div class="controls">
+                                                                    <label for="account-name">{{__('admin.mother_info')}} {{ $lang }}</label>
+                                                                    <textarea class="form-control" name="mother_info[{{$lang}}]" id="" cols="30" rows="10"  placeholder="{{__('admin.write') . __('admin.mother_info')}} {{ $lang }} ">{{$pregnantweeksinfo->getTranslations('mother_info')[$lang]??''}}</textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <div class="controls">
+                                                                    <label for="account-name">{{__('admin.baby_info')}} {{ $lang }}</label>
+                                                                    <textarea class="form-control" name="baby_info[{{$lang}}]" id="" cols="30" rows="10"  placeholder="{{__('admin.write') . __('admin.baby_info')}} {{ $lang }} ">{{$pregnantweeksinfo->getTranslations('baby_info')[$lang]??''}}</textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 @endforeach
-                                            </div> --}}
+                                            </div>
                                         
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="first-name-column">{{__('admin.name')}}</label>
-                                                <div class="controls">
-                                                    <input type="text" name="name" value="{{$pregnantweeksinfo->name}}" class="form-control" placeholder="{{__('admin.name')}}" required data-validation-required-message="{{__('admin.this_field_is_required')}}" >
+                                            <div class="col-md-12 col-12">
+                                                <div class="form-group">
+                                                    <label for="first-name-column">{{ __('admin.baby_weight') }}</label>
+                                                    <div class="controls">
+                                                        <input type="text" name="baby_weight" value="{{$pregnantweeksinfo->baby_weight}}" class="form-control"
+                                                            placeholder="{{ __('admin.baby_weight') }}" required
+                                                            data-validation-required-message="{{ __('admin.this_field_is_required') }}">
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="first-name-column">{{__('admin.phone')}}</label>
-                                                <div class="controls">
-                                                    <input type="number" name="phone" value="{{$pregnantweeksinfo->phone}}" class="form-control" placeholder="{{__('admin.phone')}}" required data-validation-required-message="{{__('admin.this_field_is_required')}}" >
+                                            <div class="col-md-12 col-12">
+                                                <div class="form-group">
+                                                    <label for="first-name-column">{{ __('admin.baby_height') }}</label>
+                                                    <div class="controls">
+                                                        <input type="text" name="baby_height" value="{{$pregnantweeksinfo->baby_height}}" class="form-control"
+                                                            placeholder="{{ __('admin.baby_height') }}" required
+                                                            data-validation-required-message="{{ __('admin.this_field_is_required') }}">
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="first-name-column">{{__('admin.email')}}</label>
-                                                <div class="controls">
-                                                    <input type="email" name="email" value="{{$pregnantweeksinfo->email}}" class="form-control" placeholder="{{__('admin.email')}}" required data-validation-required-message="{{__('admin.this_field_is_required')}}" >
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-12">
-                                            <div class="form-group">
-                                                <label for="first-name-column">{{__('admin.password')}}</label>
-                                                <div class="controls">
-                                                    <input type="password" name="password" class="form-control">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <div class="controls">
-                                                    <label for="account-name">{{__('admin.description')}}</label>
-                                                    <textarea class="form-control" name="title" id="" cols="30" rows="10" placeholder="{{__('admin.about_the_application_in_english')}}">{{$pregnantweeksinfo->title}}</textarea>
-                                                </div>
-                                            </div>
-                                        </div>
 
-                                        {{-- <div class="col-md-12 col-12">
-                                            <div class="form-group">
-                                                <label for="first-name-column">{{__('admin.Validity')}}</label>
-                                                <div class="controls">
-                                                    <select name="role_id" class="select2 form-control" required data-validation-required-message="{{__('admin.this_field_is_required')}}" >
-                                                        <option value>{{__('admin.Select_the_validity')}}</option>
-                                                        @foreach ($roles as $role)
-                                                            <option {{$role->id == $pregnantweeksinfo->role_id ? 'selected' : ''}} value="{{$role->id}}">{{$role->name}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div> --}}
 
                                     {{--  to create languages tabs uncomment that --}}
-                                    {{-- </div> --}}
+                                    </div>
                                     
                                     <div class="col-12 d-flex justify-content-center mt-3">
                                         <button type="submit" class="btn btn-primary mr-1 mb-1 submit_button">{{__('admin.update')}}</button>

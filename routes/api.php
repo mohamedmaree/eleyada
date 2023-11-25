@@ -98,7 +98,7 @@ Route::group([
                 Route::post('check-code'                   ,[AuthController::class, 'checkCode']);
                 Route::post('reset-password'               ,[AuthController::class, 'resetPassword']);
                 
-                Route::post('doctor-forget-password-send-code'    ,[AuthController::class, 'doctorForgetPasswordSendCode']);
+                // Route::post('doctor-forget-password-send-code'    ,[AuthController::class, 'doctorForgetPasswordSendCode']);
                 Route::post('doctor-check-code'             ,[AuthController::class, 'doctorCheckCode']);
                 Route::post('doctor-reset-password'        ,[AuthController::class, 'doctorResetPassword']);
                 /***************************** AuthController end *****************************/

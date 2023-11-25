@@ -25,10 +25,12 @@ class Store extends FormRequest
     {
         return [
             'name'     => 'required|max:191',
-            'is_blocked'  => 'required',
-            'phone'    => 'required|min:10|unique:users,phone',
+            'country_code' => 'required',
+            'phone'    => 'required|min:8|unique:users,phone,NULL,NULL,deleted_at,NULL',
             'email'    => 'required|email|max:191|unique:users,email,NULL,NULL,deleted_at,NULL',
             'password' => ['required', 'min:6'],
+            'is_blocked'  => 'nullable',
+            'active'  => 'nullable',
             'image'   => ['nullable', 'image'],
         ];
     }

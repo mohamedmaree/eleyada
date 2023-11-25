@@ -22,6 +22,9 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Services\TransactionService;
 use App\Http\Requests\Admin\Client\BalanceRequest;
 use DB;
+use App\Models\Country ;
+use App\Models\SiteSetting;
+
 class ClientController extends Controller {
 
     public function index($id = null) {
@@ -34,7 +37,10 @@ class ClientController extends Controller {
     }
 
     public function create() {
-        return view('admin.clients.create');
+        $supported_countries = SiteSetting::where('key','countries')->first()->value??'';
+        $supported_countries = json_decode($supported_countries);
+        $countries = Country::whereIn('id',$supported_countries??[])->orderBy('id','ASC')->get();
+        return view('admin.clients.create',get_defined_vars());
     }
 
     public function store(Store $request) {
@@ -45,7 +51,10 @@ class ClientController extends Controller {
 
     public function edit($id) {
         $row = User::findOrFail($id);
-        return view('admin.clients.edit', ['row' => $row]);
+        $supported_countries = SiteSetting::where('key','countries')->first()->value??'';
+        $supported_countries = json_decode($supported_countries);
+        $countries = Country::whereIn('id',$supported_countries)->orderBy('id','ASC')->get();
+        return view('admin.clients.edit',get_defined_vars());
     }
 
     public function update(Update $request, $id) {
@@ -75,7 +84,10 @@ class ClientController extends Controller {
     
     public function show($id) {
         $row = User::findOrFail($id);
-        return view('admin.clients.show', ['row' => $row]);
+        $supported_countries = SiteSetting::where('key','countries')->first()->value??'';
+        $supported_countries = json_decode($supported_countries);
+        $countries = Country::whereIn('id',$supported_countries)->orderBy('id','ASC')->get();
+        return view('admin.clients.show', get_defined_vars());
     }
     public function showfinancial($id) {
         $complaints = Complaint::where('user_id', $id)->paginate(10);

@@ -16,7 +16,7 @@ class forgetPasswordSendCodeRequest extends BaseApiRequest
     return [
         // 'country_code' => 'required|exists:users,country_code',
         // 'phone'        => 'required|exists:users,phone',
-        'email'       => 'required|email|exists:users,email|max:50',
+        'email'       => 'required|email',
     ];
     }
 }

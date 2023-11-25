@@ -86,6 +86,10 @@
                 [ 'key' => 'default_locale'                 , 'value' => 'ar' ],
                 [ 'key' => 'locales'                        , 'value' => '["ar","en"]' ],
                 [ 'key' => 'rtl_locales'                    , 'value' => '["ar"]' ],
+                [ 'key' => 'default_country'                , 'value' => '1' ],
+                [ 'key' => 'countries'                      , 'value' => '["1"]' ],
+                [ 'key' => 'default_currency'               , 'value' => 'KWD' ],
+                [ 'key' => 'currencies'                     , 'value' => '["KWD"]' ],
                 [ 'key' => 'insights_ar'                    , 'value' => 'معلومات تهمك معلومات تهمك'      ],
                 [ 'key' => 'insights_en'                    , 'value' => 'insights for you insights for you'                ],
             ];

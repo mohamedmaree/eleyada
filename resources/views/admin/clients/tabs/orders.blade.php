@@ -30,7 +30,8 @@
                                         <td>{{ $order->order_num }}</td>
                                         <td>{{ $order->statusText }}</td>
                                         <td class="product-action">
-                                            <span class="text-primary"><a href="#"><i class="feather icon-eye"></i></a></span>
+                                            <span class="text-primary"><a href="#" class="btn btn-warning btn-sm"><i class="feather icon-eye"></i> {{ __('admin.show') }}</a></span>
+
                                         </td>
                                     </tr>
 

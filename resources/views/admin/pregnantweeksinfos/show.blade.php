@@ -12,7 +12,110 @@
                 <div class="card-content">
                     <div class="card-body">
                         <form  class="show form-horizontal" >
-                           {{-- pregnantweeksinfo edit form section form body here --}}
+                            <div class="form-body">
+                                <div class="row">
+                                    
+                                    {{-- to create languages tabs uncomment that --}}
+                                    <div class="col-12">
+                                        <div class="col-12">
+                                            <ul class="nav nav-tabs  mb-3">
+                                                    @foreach (languages() as $lang)
+                                                        <li class="nav-item">
+                                                            <a class="nav-link @if($loop->first) active @endif"  data-toggle="pill" href="#first_{{$lang}}" aria-expanded="true">{{  __('admin.data') }} {{ $lang }}</a>
+                                                        </li>
+                                                    @endforeach
+                                            </ul>
+                                        </div> 
+
+                                        <div class="col-12">
+                                            <div class="imgMontg col-12 text-center">
+                                                <div class="dropBox">
+                                                    <div class="textCenter">
+                                                        <div class="imagesUploadBlock">
+                                                            <label class="uploadImg">
+                                                                <span><i class="feather icon-image"></i></span>
+                                                                <input type="file" accept="image/*" name="image" class="imageUploader">
+                                                            </label>
+                                                            <div class="uploadedBlock">
+                                                                <img src="{{$pregnantweeksinfo->image}}">
+                                                                <button class="close"><i class="feather icon-x"></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-12">
+                                            <div class="form-group">
+                                                <label for="first-name-column">{{ __('admin.sort') }}</label>
+                                                <div class="controls">
+                                                    <input type="number" name="order" value="{{$pregnantweeksinfo->order}}" class="form-control"
+                                                        placeholder="{{ __('admin.sort') }}" required
+                                                        data-validation-required-message="{{ __('admin.this_field_is_required') }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-content">
+                                                @foreach (languages() as $lang)
+                                                    <div role="tabpanel" class="tab-pane fade @if($loop->first) show active @endif " id="first_{{$lang}}" aria-labelledby="first_{{$lang}}" aria-expanded="true">
+                                                        <div class="col-md-12 col-12">
+                                                            <div class="form-group">
+                                                                <label for="first-name-column">{{__('admin.name')}} {{ $lang }}</label>
+                                                                <div class="controls">
+                                                                    <input type="text" value="{{$pregnantweeksinfo->getTranslations('name')[$lang]??''}}" name="name[{{$lang}}]" class="form-control" placeholder="{{__('admin.write') . __('admin.name')}} {{ $lang }}" required data-validation-required-message="{{__('admin.this_field_is_required')}}" >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <div class="controls">
+                                                                    <label for="account-name">{{__('admin.mother_info')}} {{ $lang }}</label>
+                                                                    <textarea class="form-control" name="mother_info[{{$lang}}]" id="" cols="30" rows="10"  placeholder="{{__('admin.write') . __('admin.mother_info')}} {{ $lang }} ">{{$pregnantweeksinfo->getTranslations('mother_info')[$lang]??''}}</textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            <div class="form-group">
+                                                                <div class="controls">
+                                                                    <label for="account-name">{{__('admin.baby_info')}} {{ $lang }}</label>
+                                                                    <textarea class="form-control" name="baby_info[{{$lang}}]" id="" cols="30" rows="10"  placeholder="{{__('admin.write') . __('admin.baby_info')}} {{ $lang }} ">{{$pregnantweeksinfo->getTranslations('baby_info')[$lang]??''}}</textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        
+                                            <div class="col-md-12 col-12">
+                                                <div class="form-group">
+                                                    <label for="first-name-column">{{ __('admin.baby_weight') }}</label>
+                                                    <div class="controls">
+                                                        <input type="text" name="baby_weight" value="{{$pregnantweeksinfo->baby_weight}}" class="form-control"
+                                                            placeholder="{{ __('admin.baby_weight') }}" required
+                                                            data-validation-required-message="{{ __('admin.this_field_is_required') }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-12">
+                                                <div class="form-group">
+                                                    <label for="first-name-column">{{ __('admin.baby_height') }}</label>
+                                                    <div class="controls">
+                                                        <input type="text" name="baby_height" value="{{$pregnantweeksinfo->baby_height}}" class="form-control"
+                                                            placeholder="{{ __('admin.baby_height') }}" required
+                                                            data-validation-required-message="{{ __('admin.this_field_is_required') }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                    {{--  to create languages tabs uncomment that --}}
+                                    </div>
+                                    
+                                    <div class="col-12 d-flex justify-content-center mt-3">
+                                        <a href="{{ url()->previous() }}" type="reset" class="btn btn-outline-warning mr-1 mb-1">{{__('admin.back')}}</a>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>

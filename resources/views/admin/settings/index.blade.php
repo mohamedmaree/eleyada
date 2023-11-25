@@ -11,63 +11,63 @@
   <section id="page-account-settings">
       <div class="row">
           <!-- left menu section -->
-          <div class="col-md-3 mb-2 mb-md-0">
-              <ul class="nav nav-pills flex-column mt-md-0 mt-1">
+          <div class="col-md-3 mb-2 mb-md-0 ">
+              <ul class="nav nav-pills flex-column mt-md-0 mt-1 card card-body">
 
-                  <li class="nav-item">
-                      <a class="nav-link d-flex py-75 active" id="account-pill-main" data-toggle="pill" href="#account-vertical-main" aria-expanded="true">
-                          <i class="feather icon-settings mr-50 font-medium-3"></i>
-                          {{__('admin.app_setting')}}
-                      </a>
-                  </li>
-                  <li class="nav-item" style="margin-top: 3px" >
+                <li class="nav-item">
+                    <a class="nav-link d-flex py-75 active" id="account-pill-main" data-toggle="pill" href="#account-vertical-main" aria-expanded="true">
+                        <i class="feather icon-settings mr-50 font-medium-3"></i>
+                        {{__('admin.app_setting')}}
+                    </a>
+                </li>
+                <li class="nav-item" style="margin-top: 3px" >
                     <a class="nav-link d-flex py-75" id="account-pill-language" data-toggle="pill" href="#account-vertical-language" aria-expanded="true">
                         <i class="feather icon-settings mr-50 font-medium-3"></i>
                         {{__('admin.language_setting')}}
                     </a>
                 </li>
-                  <li class="nav-item" style="margin-top: 3px" > 
-                      <a class="nav-link d-flex py-75" id="account-pill-terms" data-toggle="pill" href="#account-vertical-terms" aria-expanded="false">
-                          <i class="feather icon-edit-1 mr-50 font-medium-3"></i>
-                          {{__('admin.terms_and_conditions')}}
-                      </a>
-                  </li>
-                  <li class="nav-item " style="margin-top: 3px">
-                      <a class="nav-link d-flex py-75" id="account-pill-about" data-toggle="pill" href="#account-vertical-about" aria-expanded="false">
-                          <i class="feather icon-edit-1 mr-50 font-medium-3"></i>
-                          {{__('admin.about_app')}}
-                      </a>
-                  </li>
-                  <li class="nav-item " style="margin-top: 3px">
-                      <a class="nav-link d-flex py-75" id="account-pill-privacy" data-toggle="pill" href="#account-vertical-privacy" aria-expanded="false">
-                          <i class="feather icon-award mr-50 font-medium-3"></i>
-                          {{__('admin.Privacy_policy')}}
-                      </a>
-                  </li>
-                  <li class="nav-item " style="margin-top: 3px">
-                    <a class="nav-link d-flex py-75" id="account-pill-insights" data-toggle="pill" href="#account-vertical-insights" aria-expanded="false">
-                        <i class="feather icon-award mr-50 font-medium-3"></i>
-                        {{__('admin.insights')}}
+                <li class="nav-item" style="margin-top: 3px" >
+                    <a class="nav-link d-flex py-75" id="account-pill-countries" data-toggle="pill" href="#account-vertical-countries" aria-expanded="true">
+                        <i class="feather icon-settings mr-50 font-medium-3"></i>
+                        {{__('admin.countries_currencies')}}
                     </a>
-                   </li>
-                  <li class="nav-item " style="margin-top: 3px">
-                      <a class="nav-link d-flex py-75" id="account-pill-smtp" data-toggle="pill" href="#account-vertical-smtp" aria-expanded="false">
-                          <i class="feather icon-mail mr-50 font-medium-3"></i>
-                          {{__('admin.email_data')}}
-                      </a>
-                  </li>
-                  <li class="nav-item " style="margin-top: 3px">
-                      <a class="nav-link d-flex py-75" id="account-pill-notifications" data-toggle="pill" href="#account-vertical-notifications" aria-expanded="false">
-                          <i class="feather icon-bell mr-50 font-medium-3"></i>
-                          {{__('admin.notification_data')}}
-                      </a>
-                  </li>
-                  <li class="nav-item " style="margin-top: 3px">
-                      <a class="nav-link d-flex py-75" id="account-pill-api" data-toggle="pill" href="#account-vertical-api" aria-expanded="false">
-                          <i class="feather icon-droplet mr-50 font-medium-3"></i>
-                          {{__('admin.api_data')}}
-                      </a>
-                  </li>
+                </li>
+                <li class="nav-item" style="margin-top: 3px" > 
+                    <a class="nav-link d-flex py-75" id="account-pill-terms" data-toggle="pill" href="#account-vertical-terms" aria-expanded="false">
+                        <i class="feather icon-edit-1 mr-50 font-medium-3"></i>
+                        {{__('admin.terms_and_conditions')}}
+                    </a>
+                </li>
+                <li class="nav-item " style="margin-top: 3px">
+                    <a class="nav-link d-flex py-75" id="account-pill-about" data-toggle="pill" href="#account-vertical-about" aria-expanded="false">
+                        <i class="feather icon-edit-1 mr-50 font-medium-3"></i>
+                        {{__('admin.about_app')}}
+                    </a>
+                </li>
+                <li class="nav-item " style="margin-top: 3px">
+                    <a class="nav-link d-flex py-75" id="account-pill-privacy" data-toggle="pill" href="#account-vertical-privacy" aria-expanded="false">
+                        <i class="feather icon-award mr-50 font-medium-3"></i>
+                        {{__('admin.Privacy_policy')}}
+                    </a>
+                </li>
+                <li class="nav-item " style="margin-top: 3px">
+                    <a class="nav-link d-flex py-75" id="account-pill-smtp" data-toggle="pill" href="#account-vertical-smtp" aria-expanded="false">
+                        <i class="feather icon-mail mr-50 font-medium-3"></i>
+                        {{__('admin.email_data')}}
+                    </a>
+                </li>
+                <li class="nav-item " style="margin-top: 3px">
+                    <a class="nav-link d-flex py-75" id="account-pill-notifications" data-toggle="pill" href="#account-vertical-notifications" aria-expanded="false">
+                        <i class="feather icon-bell mr-50 font-medium-3"></i>
+                        {{__('admin.notification_data')}}
+                    </a>
+                </li>
+                <li class="nav-item " style="margin-top: 3px">
+                    <a class="nav-link d-flex py-75" id="account-pill-api" data-toggle="pill" href="#account-vertical-api" aria-expanded="false">
+                        <i class="feather icon-droplet mr-50 font-medium-3"></i>
+                        {{__('admin.api_data')}}
+                    </a>
+                </li>
 
               </ul>
           </div>
@@ -304,27 +304,123 @@
                                 </form>
                               </div>
 
+                              <div role="tabpanel" class="tab-pane" id="account-vertical-countries" aria-labelledby="account-pill-countries" aria-expanded="false">
+                                <form accept="{{route('admin.settings.update')}}" method="post" enctype="multipart/form-data">
+                                    @method('put')
+                                    @csrf
+                                    <div class="row">
+
+                                        <div class="col-12 col-md-12">
+                                            <div class="form-group">
+                                                <div class="controls">
+                                                    <label for="account-name">{{__('admin.supported_countries')}}</label>
+                                                    <select name="countries[]" class="form-control select2" multiple="">
+                                                        @foreach ($countries as $country)
+                                                            <option value="{{ $country->id }}"
+                                                                @if (in_array($country->id,json_decode($data['countries'])))
+                                                                    selected
+                                                                @endif >
+                                                                {{ $country->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-12">
+                                            <div class="form-group">
+                                                <div class="controls">
+                                                    <label for="account-name">{{__('admin.default_country')}}</label>
+                                                    <select name="default_country" class="form-control select2">
+                                                        @foreach ($countries as $country)
+                                                            <option value="{{ $country->id }}"
+                                                                    @if ($data['default_country'] == $country->id)
+                                                                    selected
+                                                                @endif>
+                                                                {{ $country->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-12">
+                                            <div class="form-group">
+                                                <div class="controls">
+                                                    <label for="account-name">{{__('admin.supported_currencies')}}</label>
+                                                    <select name="currencies[]" class="form-control select2" multiple="">
+                                                        @foreach ($countries as $country)
+                                                            <option value="{{ $country->currency_code }}"
+                                                                @if (in_array($country->currency_code,json_decode($data['currencies'])))
+                                                                    selected
+                                                                @endif >
+                                                                {{ $country->currency }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-12">
+                                            <div class="form-group">
+                                                <div class="controls">
+                                                    <label for="account-name">{{__('admin.default_currency')}}</label>
+                                                    <select name="default_currency" class="form-control select2">
+                                                        @foreach ($countries as $country)
+                                                            <option value="{{ $country->currency_code }}"
+                                                                    @if ($data['default_currency'] == $country->currency_code)
+                                                                    selected
+                                                                @endif>
+                                                                {{ $country->currency }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 d-flex justify-content-center mt-3">
+                                          <button type="submit" class="btn btn-primary mr-1 mb-1 submit_button">{{__('admin.saving_changes')}}</button>
+                                          <a href="{{ url()->previous() }}" type="reset" class="btn btn-outline-warning mr-1 mb-1">{{__('admin.back')}}</a>
+                                      </div>
+                                    </div>
+                                </form>
+                              </div>
+
                               <div role="tabpanel" class="tab-pane" id="account-vertical-terms" aria-labelledby="account-pill-terms" aria-expanded="false">
                                 <form accept="{{route('admin.settings.update')}}" method="post" enctype="multipart/form-data">
                                     @method('put')
                                     @csrf
                                     <div class="row">
+
                                         <div class="col-12">
-                                            <div class="form-group">
-                                                <div class="controls">
-                                                    <label for="account-name">{{__('admin.conditions_and_conditions_in_arabic')}}</label>
-                                                    <textarea class="form-control" name="terms_ar" id="terms_ar_editor" cols="30" rows="10" placeholder="{{__('admin.terms_and_conditions')}}">{{$data['terms_ar']}}</textarea>
+                                            <ul class="nav nav-tabs  mb-3">
+                                                @foreach (languages() as $lang)
+                                                    <li class="nav-item">
+                                                        <a class="nav-link @if($loop->first) active @endif"  data-toggle="pill" href="#first_{{$lang}}" aria-expanded="true">{{  __('admin.data') }} {{ $lang }}</a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div> 
+
+                                        <div class="tab-content">
+                                            @foreach (languages() as $lang)
+                                                <div role="tabpanel" class="tab-pane fade @if($loop->first) show active @endif " id="first_{{$lang}}" aria-labelledby="first_{{$lang}}" aria-expanded="true">
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <div class="controls">
+                                                                <label for="account-name">{{__('admin.conditions_and_conditions')}} {{ $lang  }}</label>
+                                                                <textarea class="form-control" name="terms_{{ $lang }}" id="terms_{{ $lang }}_editor" cols="30" rows="10" placeholder="{{__('admin.conditions_and_conditions')}} {{ $lang }}">{{$data['terms_'.$lang]??''}}</textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            @endforeach
                                         </div>
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <div class="controls">
-                                                    <label for="account-name">{{__('admin.conditions_and_conditions_of_english')}}</label>
-                                                    <textarea class="form-control" name="terms_en" id="terms_en_editor" cols="30" rows="10" placeholder="{{__('admin.terms_and_conditions')}}">{{$data['terms_en']}}</textarea>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                         <div class="col-12 d-flex justify-content-center mt-3">
                                           <button type="submit" class="btn btn-primary mr-1 mb-1 submit_button">{{__('admin.saving_changes')}}</button>
                                           <a href="{{ url()->previous() }}" type="reset" class="btn btn-outline-warning mr-1 mb-1">{{__('admin.back')}}</a>
@@ -338,22 +434,32 @@
                                     @method('put')
                                     @csrf
                                     <div class="row">
+                                        
                                         <div class="col-12">
-                                            <div class="form-group">
-                                                <div class="controls">
-                                                    <label for="account-name">{{__('admin.about_the_application_in_arabic')}}</label>
-                                                    <textarea class="form-control" name="about_ar" id="about_ar_editor" cols="30" rows="10" placeholder="{{__('admin.about_the_application_in_arabic')}}">{{$data['about_ar']}}</textarea>
+                                            <ul class="nav nav-tabs  mb-3">
+                                                @foreach (languages() as $lang)
+                                                    <li class="nav-item">
+                                                        <a class="nav-link @if($loop->first) active @endif"  data-toggle="pill" href="#about_{{$lang}}" aria-expanded="true">{{  __('admin.data') }} {{ $lang }}</a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div> 
+
+                                        <div class="tab-content">
+                                            @foreach (languages() as $lang)
+                                                <div role="tabpanel" class="tab-pane fade @if($loop->first) show active @endif " id="about_{{$lang}}" aria-labelledby="first_{{$lang}}" aria-expanded="true">
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <div class="controls">
+                                                                <label for="account-name">{{__('admin.about_the_application')}} {{ $lang  }}</label>
+                                                                <textarea class="form-control" name="about_{{ $lang }}" id="about_{{ $lang }}_editor" cols="30" rows="10" placeholder="{{__('admin.about_the_application')}} {{ $lang }}">{{$data['about_'.$lang]??''}}</textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            @endforeach
                                         </div>
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <div class="controls">
-                                                    <label for="account-name">{{__('admin.about_the_application_in_english')}}</label>
-                                                    <textarea class="form-control" name="about_en" id="about_en_editor" cols="30" rows="10" placeholder="{{__('admin.about_the_application_in_english')}}">{{$data['about_en']}}</textarea>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                         <div class="col-12 d-flex justify-content-center mt-3">
                                           <button type="submit" class="btn btn-primary mr-1 mb-1 submit_button">{{__('admin.saving_changes')}}</button>
                                           <a href="{{ url()->previous() }}" type="reset" class="btn btn-outline-warning mr-1 mb-1">{{__('admin.back')}}</a>
@@ -367,51 +473,32 @@
                                     @method('put')
                                     @csrf
                                     <div class="row">
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <div class="controls">
-                                                    <label for="account-name">{{__('admin.privacy_policy_in_arabic')}}</label>
-                                                    <textarea class="form-control" name="privacy_ar" id="privacy_ar_editor" cols="30" rows="10" placeholder="{{__('admin.privacy_policy_in_arabic')}}">{{$data['privacy_ar']}}</textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <div class="controls">
-                                                    <label for="account-name">{{__('admin.privacy_policy_in_english')}}</label>
-                                                    <textarea class="form-control" name="privacy_en" id="privacy_en_editor" cols="30" rows="10" placeholder="{{__('admin.privacy_policy_in_english')}}">{{$data['privacy_en']}}</textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 d-flex justify-content-center mt-3">
-                                          <button type="submit" class="btn btn-primary mr-1 mb-1 submit_button">{{__('admin.saving_changes')}}</button>
-                                          <a href="{{ url()->previous() }}" type="reset" class="btn btn-outline-warning mr-1 mb-1">{{__('admin.back')}}</a>
-                                      </div>
-                                    </div>
-                                </form>
-                              </div>
 
-                              <div role="tabpanel" class="tab-pane" id="account-vertical-insights" aria-labelledby="account-pill-insights" aria-expanded="false">
-                                <form accept="{{route('admin.settings.update')}}" method="post" enctype="multipart/form-data">
-                                    @method('put')
-                                    @csrf
-                                    <div class="row">
                                         <div class="col-12">
-                                            <div class="form-group">
-                                                <div class="controls">
-                                                    <label for="account-name">{{__('admin.insights_in_arabic')}}</label>
-                                                    <textarea class="form-control" name="insights_ar" id="insights_ar_editor" cols="30" rows="10" placeholder="{{__('admin.insights_in_arabic')}}">{{$data['insights_ar']}}</textarea>
+                                            <ul class="nav nav-tabs  mb-3">
+                                                @foreach (languages() as $lang)
+                                                    <li class="nav-item">
+                                                        <a class="nav-link @if($loop->first) active @endif"  data-toggle="pill" href="#privacy_{{$lang}}" aria-expanded="true">{{  __('admin.data') }} {{ $lang }}</a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div> 
+
+                                        <div class="tab-content">
+                                            @foreach (languages() as $lang)
+                                                <div role="tabpanel" class="tab-pane fade @if($loop->first) show active @endif " id="privacy_{{$lang}}" aria-labelledby="first_{{$lang}}" aria-expanded="true">
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <div class="controls">
+                                                                <label for="account-name">{{__('admin.privacy_policy')}} {{ $lang  }}</label>
+                                                                <textarea class="form-control" name="privacy_{{ $lang }}" id="privacy_{{ $lang }}_editor" cols="30" rows="10" placeholder="{{__('admin.privacy_policy')}} {{ $lang }}">{{$data['privacy_'.$lang]??''}}</textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            @endforeach
                                         </div>
-                                        <div class="col-12">
-                                            <div class="form-group">
-                                                <div class="controls">
-                                                    <label for="account-name">{{__('admin.insights_in_english')}}</label>
-                                                    <textarea class="form-control" name="insights_en" id="insights_en_editor" cols="30" rows="10" placeholder="{{__('admin.insights_in_english')}}">{{$data['insights_en']}}</textarea>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                         <div class="col-12 d-flex justify-content-center mt-3">
                                           <button type="submit" class="btn btn-primary mr-1 mb-1 submit_button">{{__('admin.saving_changes')}}</button>
                                           <a href="{{ url()->previous() }}" type="reset" class="btn btn-outline-warning mr-1 mb-1">{{__('admin.back')}}</a>
@@ -586,15 +673,12 @@
     <script src="{{asset('admin/app-assets/js/scripts/forms/validation/form-validation.js')}}"></script>
     <script src="https://cdn.ckeditor.com/4.16.2/full-all/ckeditor.js"></script>
     <script>
-            CKEDITOR.replace( 'terms_ar_editor' );
-            CKEDITOR.replace( 'terms_en_editor' );
-            CKEDITOR.replace( 'privacy_ar_editor' );
-            CKEDITOR.replace( 'privacy_en_editor' );
-            CKEDITOR.replace( 'about_ar_editor' );
-            CKEDITOR.replace( 'about_en_editor' );
+        @foreach(languages() as $lang)
+            CKEDITOR.replace( 'about_{{ $lang }}_editor' );
+            CKEDITOR.replace( 'terms_{{ $lang }}_editor' );
+            CKEDITOR.replace( 'privacy_{{ $lang }}_editor' );
+        @endforeach
 
-            CKEDITOR.replace( 'insights_ar_editor' );
-            CKEDITOR.replace( 'insights_en_editor' );
     </script>
   {{-- show selected image script --}}
     @include('admin.shared.addImage')
