@@ -14,10 +14,15 @@ class Store extends FormRequest
     public function rules()
     {
         return [
+            'doctor_id'             => 'required|exists:doctors,id',
+            'region_id'             => 'nullable|exists:regions,id',
             'name'                  => 'required|max:191',
-            'phone'                 => 'required|numeric|unique:users,phone',
-            'email'                 => 'required|email|max:191|unique:users,email',
-            'password'              => ['required','max:191'],
+            'phone_number'          => 'required',
+            'address'                => 'nullable',
+            'delivery'               => 'required',
+            'total_amount'           => 'required',
+            'status'                 => 'required',
+            'delivery_confirmation'  => 'nullable',
         ];
     }
 }

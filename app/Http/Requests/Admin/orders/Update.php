@@ -14,12 +14,15 @@ class Update extends FormRequest
     public function rules()
     {
         return [
+            'doctor_id'             => 'required|exists:doctors,id',
+            'region_id'             => 'nullable|exists:regions,id',
             'name'                  => 'required|max:191',
-            'phone'                 => 'required|numeric|unique:users,phone,'.$this->id,
-            'email'                 => 'required|email|max:191|unique:users,email,'.$this->id,
-            'type'                  => 'required_if:type,good',
-            'password'              => ['nullable','max:191'],
-            'avatar'                => ['nullable','image'],
+            'phone_number'          => 'required',
+            'address'                => 'nullable',
+            'delivery'               => 'nullable',
+            'total_amount'           => 'nullable',
+            'status'                 => 'required',
+            'delivery_confirmation'  => 'nullable',
         ];
     }
 }

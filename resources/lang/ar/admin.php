@@ -786,6 +786,17 @@ return [
     'currency'  => ' العملة',
     'currency_code'  => 'رمز العملة',
     'identity_proof' => 'صورة الهوية',
+    'delivered'  => 'تم التوصيل',
+    'in_progress'  => 'قيد التنفيذ',
+    'canceled'  => 'ملغي',
+    'delivery' =>'سعر التوصيل',
+    'total_amount'  => 'السعر الاجمالي',
+    'delivery_confirmation' => 'ميعاد التوصيل',
+    'order_items' => 'مكونات الطلب',
+    'quantity' => 'العدد',
+    'add_item' => 'اضافة عنصر',
+    'subtotal' => 'الاجمالي',
+    'price' => 'السعر',
 
     #new_comand_translations_here
                 

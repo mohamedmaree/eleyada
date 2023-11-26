@@ -14,44 +14,50 @@
     addbutton="{{ route('admin.orders.create') }}" 
     deletebutton="{{ route('admin.orders.deleteAll') }}" 
     :searchArray="[
+        'order_num' => [
+            'input_type' => 'text' , 
+            'input_name' => __('admin.order_num') , 
+        ] ,
         'name' => [
             'input_type' => 'text' , 
             'input_name' => __('admin.name') , 
         ] ,
-        'phone' => [
+        'phone_number' => [
             'input_type' => 'text' , 
             'input_name' => __('admin.phone') , 
         ] ,
-        'email' => [
+        'address' => [
             'input_type' => 'text' , 
-            'input_name' => __('admin.email') , 
+            'input_name' => __('admin.address') , 
         ] ,
-        'active' => [
+        'status' => [
             'input_type' => 'select' , 
             'rows'       => [
               '1' => [
-                'name' => __('admin.activate') , 
-                'id' => 1 , 
+                'name' => __('admin.delivered') , 
+                'id' => 'delivered' , 
               ],
               '2' => [
-                'name' => __('admin.dis_activate') , 
-                'id' => 0 , 
+                'name' => __('admin.in_progress') , 
+                'id' => 'in_progress' , 
+              ],
+              '3' => [
+                'name' => __('admin.canceled') , 
+                'id' => 'canceled' , 
               ],
             ] , 
-            'input_name' => __('admin.phone_activation_status')  , 
+            'input_name' => __('admin.status')  , 
         ] ,
-        {{-- 'country_id' => [
+        'doctor_id' => [
             'input_type' => 'select' , 
-            'rows'       => $countries , 
-            'input_name' => __('admin.country') , 
-        ] ,
-        'intro_fqs_category_id' => [
+            'rows'       => $doctors , 
+            'input_name' => __('admin.doctor') , 
+        ],
+        'region_id' => [
             'input_type' => 'select' , 
-            'rows'       => $categories , 
-            'row_name'   => 'title' , 
-            'input_name' => __('admin.section') , 
+            'rows'       => $regions , 
+            'input_name' => __('admin.region') , 
         ] ,
-         --}}
     ]" 
 >
 

@@ -15,9 +15,9 @@ class Order extends BaseModel
         return $this->belongsTo(Doctor::class,'doctor_id','id');
     }
 
-    public function governorate()
+    public function region()
     {
-        return $this->belongsTo(Governorate::class);
+        return $this->belongsTo(Region::class);
     }
 
     public function orderItems()

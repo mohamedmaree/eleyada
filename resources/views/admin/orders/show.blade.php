@@ -12,7 +12,190 @@
                 <div class="card-content">
                     <div class="card-body">
                         <form  class="show form-horizontal" >
-                           {{-- order edit form section form body here --}}
+                            <div class="form-body">
+                                <div class="row">
+                                    
+                                    {{-- to create languages tabs uncomment that --}}
+                                    {{-- <div class="col-12">
+                                        <div class="col-12">
+                                            <ul class="nav nav-tabs  mb-3">
+                                                    @foreach (languages() as $lang)
+                                                        <li class="nav-item">
+                                                            <a class="nav-link @if($loop->first) active @endif"  data-toggle="pill" href="#first_{{$lang}}" aria-expanded="true">{{  __('admin.data') }} {{ $lang }}</a>
+                                                        </li>
+                                                    @endforeach
+                                            </ul>
+                                        </div>  --}}
+
+                                        
+                                        {{-- <div class="tab-content">
+                                                @foreach (languages() as $lang)
+                                                    <div role="tabpanel" class="tab-pane fade @if($loop->first) show active @endif " id="first_{{$lang}}" aria-labelledby="first_{{$lang}}" aria-expanded="true">
+                                                        <div class="col-md-12 col-12">
+                                                            <div class="form-group">
+                                                                <label for="first-name-column">{{__('admin.name')}} {{ $lang }}</label>
+                                                                <div class="controls">
+                                                                    <input type="text" value="{{$order->getTranslations('name')[$lang]??''}}" name="name[{{$lang}}]" class="form-control" placeholder="{{__('admin.write') . __('admin.name')}} {{ $lang }}" required data-validation-required-message="{{__('admin.this_field_is_required')}}" >
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+                                            </div> --}}
+                                        
+                                            <div class="col-md-12 col-12">
+                                                <div class="form-group">
+                                                    <label for="first-name-column">{{__('admin.doctor')}}</label>
+                                                    <div class="controls">
+                                                        <select name="doctor_id" class="select2 form-control" required data-validation-required-message="{{__('admin.this_field_is_required')}}" >
+                                                            <option value>{{__('admin.doctor')}}</option>
+                                                            @foreach ($doctors as $doctor)
+                                                                <option value="{{$doctor->id}}" {{ $order->doctor_id == $doctor->id ? 'selected' : '' }}>{{$doctor->name}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-12">
+                                                <div class="form-group">
+                                                    <label for="first-name-column">{{__('admin.region')}}</label>
+                                                    <div class="controls">
+                                                        <select name="region_id" class="select2 form-control" >
+                                                            <option value>{{__('admin.region')}}</option>
+                                                            @foreach ($regions as $region)
+                                                                <option value="{{$region->id}}" {{ $order->region_id == $region->id ? 'selected' : '' }}>{{$region->name}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="first-name-column">{{ __('admin.name') }}</label>
+                                                    <div class="controls">
+                                                        <input type="text" name="name" value="{{ $order->name }}" class="form-control"
+                                                            placeholder="{{ __('admin.name') }}" required
+                                                            data-validation-required-message="{{ __('admin.this_field_is_required') }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="first-name-column">{{ __('admin.phone') }}</label>
+                                                    <div class="controls">
+                                                        <input type="number" name="phone_number" value="{{ $order->phone_number }}" class="form-control"
+                                                            placeholder="{{ __('admin.phone') }}" required
+                                                            data-validation-required-message="{{ __('admin.this_field_is_required') }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="first-name-column">{{ __('admin.address') }}</label>
+                                                    <div class="controls">
+                                                        <input type="text" name="address" value="{{ $order->address }}" class="form-control"
+                                                            placeholder="{{ __('admin.address') }}" >
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="first-name-column">{{ __('admin.delivery') }}</label>
+                                                    <div class="controls">
+                                                        <input type="number" name="delivery" value="{{ $order->delivery }}" min="0" step="0.01" class="form-control" required
+                                                            data-validation-required-message="{{ __('admin.this_field_is_required') }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="first-name-column">{{ __('admin.total_amount') }}</label>
+                                                    <div class="controls">
+                                                        <input type="number" name="total_amount" value="{{ $order->total_amount }}" min="0" step="0.01" class="form-control" required
+                                                            data-validation-required-message="{{ __('admin.this_field_is_required') }}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="first-name-column">{{ __('admin.delivery_confirmation') }}</label>
+                                                    <div class="controls">
+                                                        <input type="datetime-local" name="delivery_confirmation" value="{{ $order->delivery_confirmation }}" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-12 col-12">
+                                                <div class="form-group">
+                                                    <label for="first-name-column">{{ __('admin.status') }}</label>
+                                                    <div class="controls">
+                                                        <select name="status" class="select2 form-control" required
+                                                            data-validation-required-message="{{ __('admin.status') }}">
+                                                            <option value>{{ __('admin.status') }}</option>
+                                                            <option value="delivered" {{ $order->status == 'delivered' ? 'selected' : '' }}>{{ __('admin.delivered') }}</option>
+                                                            <option value="in_progress" {{ $order->status == 'in_progress' ? 'selected' : '' }}>{{ __('admin.in_progress') }}</option>
+                                                            <option value="canceled" {{ $order->status == 'canceled' ? 'selected' : '' }}>{{ __('admin.canceled') }}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                    {{--  to create languages tabs uncomment that --}}
+                                    {{-- </div> --}}
+                                    <span class="mt-3 mb-2 col-12 w-100 text-center user_names">{{__('admin.order_items')}}</span>
+                                    <div class="col-12 append_here user_names">
+                                            @foreach($order->orderItems as $item)
+                                            <div class="col-12 row">
+                                                <div class="col-md-6 col-12">
+                                                    <div class="form-group">
+                                                        <label for="first-name-column">{{__('admin.product')}}</label>
+                                                        <div class="controls">
+                                                            <select name="product_id[]" class="select2 form-control" >
+                                                                <option value>{{__('admin.product')}}</option>
+                                                                @foreach ($products as $product)
+                                                                    <option value="{{$product->id}}" {{ $item->product_id == $product->id ? 'selected' :'' }}>{{$product->name}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="first-name-column">{{__('admin.quantity')}}</label>
+                                                        <div class="controls">
+                                                            <input type="text"  name="quantity[]" value="{{ $item->quantity }}" class="form-control" placeholder="{{__('admin.quantity')}}"  >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="first-name-column">{{__('admin.price')}}</label>
+                                                        <div class="controls">
+                                                            <input type="text"  name="price[]" value="{{ $item->price }}" class="form-control" placeholder="{{__('admin.price')}}"  >
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 col-6">
+                                                    <div class="form-group">
+                                                        <label for="first-name-column">{{__('admin.subtotal')}}</label>
+                                                        <div class="controls">
+                                                            <input type="text"  name="subtotal[]" value="{{ $item->subtotal }}" class="form-control" placeholder="{{__('admin.subtotal')}}"  >
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            
+                                        </div>
+                                        @endforeach
+                                    </div>
+
+                                    <div class="col-12 d-flex justify-content-center mt-3">
+                                        <a href="{{ url()->previous() }}" type="reset" class="btn btn-outline-warning mr-1 mb-1">{{__('admin.back')}}</a>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
                     </div>
                 </div>
