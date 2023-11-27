@@ -797,6 +797,11 @@ return [
     'add_item' => 'اضافة عنصر',
     'subtotal' => 'الاجمالي',
     'price' => 'السعر',
+    'location_link' => 'رابط الخريطة',
+    'link' => 'الرابط',
+    'booking_link' => 'رابط الحجز',
+    'phone_numbers' => 'ارقام الهاتف',
+    'add_number' => 'اضافة رقم',
 
     #new_comand_translations_here
                 

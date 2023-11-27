@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\clinics\Store;
 use App\Http\Requests\Admin\clinics\Update;
 use App\Models\Clinic ;
+use App\Models\Doctor ;
+use App\Models\ClinicPictures ;
 use App\Traits\Report;
 
 
@@ -19,30 +21,62 @@ class ClinicController extends Controller
             $html = view('admin.clinics.table' ,compact('clinics'))->render() ;
             return response()->json(['html' => $html]);
         }
-        return view('admin.clinics.index');
+        $doctors = Doctor::orderBy('name','ASC')->get();
+        return view('admin.clinics.index',get_defined_vars());
     }
 
     public function create()
     {
-        return view('admin.clinics.create');
+        $doctors = Doctor::orderBy('name','ASC')->get();
+        return view('admin.clinics.create',get_defined_vars());
     }
-
 
     public function store(Store $request)
     {
-        Clinic::create($request->validated());
+        $clinc = Clinic::create($request->validated());
+        if ($request->numbers) {
+            $numbers = [];
+            foreach ($request->numbers as $value) {
+                $numbers[]['number'] = $value;
+            }
+            $clinc->Numbers()->createMany($numbers);
+        }
+        if ($request->hasFile('images')) {
+            $this->storeFiles($clinc, $request->file('images'));
+        }
         Report::addToLog('  اضافه العيادة') ;
         return response()->json(['url' => route('admin.clinics.index')]);
     }
+
+    private function storeFiles($clinc, $files)
+    {    
+        foreach ($files as $file) {
+            $clinc->Pictures()->create(['image' => $file]);
+        }
+    }
+
     public function edit($id)
     {
         $clinic = Clinic::findOrFail($id);
-        return view('admin.clinics.edit' , ['clinic' => $clinic]);
+        $doctors = Doctor::orderBy('name','ASC')->get();
+        return view('admin.clinics.edit' ,get_defined_vars());
     }
 
     public function update(Update $request, $id)
     {
-        $clinic = Clinic::findOrFail($id)->update($request->validated());
+        $clinic = Clinic::findOrFail($id);
+        $clinic->update($request->validated());
+        if ($request->numbers) {
+            $clinic->Numbers()->delete();
+            $numbers = [];
+            foreach ($request->numbers as $value) {
+                $numbers[]['number'] = $value;
+            }
+            $clinic->Numbers()->createMany($numbers);
+        }
+        if ($request->hasFile('images')) {
+            $this->storeFiles($clinic, $request->file('images'));
+        }
         Report::addToLog('  تعديل العيادة') ;
         return response()->json(['url' => route('admin.clinics.index')]);
     }
@@ -50,7 +84,8 @@ class ClinicController extends Controller
     public function show($id)
     {
         $clinic = Clinic::findOrFail($id);
-        return view('admin.clinics.show' , ['clinic' => $clinic]);
+        $doctors = Doctor::orderBy('name','ASC')->get();
+        return view('admin.clinics.show' ,get_defined_vars());
     }
     public function destroy($id)
     {
@@ -72,5 +107,12 @@ class ClinicController extends Controller
         } else {
             return response()->json('failed');
         }
+    }
+
+    public function deleteImage(Request $request)
+    {
+        $image = ClinicPictures::find($request->image_id);
+        $image->delete();
+        return response()->json(['msg' => 'success']);
     }
 }

@@ -80,7 +80,7 @@
                 [ 'key' => 'firebase_key'                   , 'value' => ''    ],
                 [ 'key' => 'firebase_sender_id'             , 'value' => ''    ],
 
-                [ 'key' => 'google_places'                  , 'value' => ''    ],
+                [ 'key' => 'google_places'                  , 'value' => 'AIzaSyCbxkyWpGCjFt4d-zuib72Mxk9W9yzlEXM'    ],
                 [ 'key' => 'google_analytics'               , 'value' => ''    ],
                 [ 'key' => 'live_chat'                      , 'value' => ''    ],
                 [ 'key' => 'default_locale'                 , 'value' => 'ar' ],

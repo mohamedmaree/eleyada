@@ -483,4 +483,9 @@ return [
     'add_item' => 'Add Item',
     'subtotal' => 'Subtotal',
     'price' => 'Price',
+    'location_link' => 'Location Link',
+    'link' => 'link',
+    'booking_link' => 'Booking Link',
+    'phone_numbers' => 'Phone Numbers',
+    'add_number' => 'Add Number',
 ];

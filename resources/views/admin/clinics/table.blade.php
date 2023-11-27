@@ -15,11 +15,11 @@
                         <span class="checkmark"></span>
                     </label>
                 </th>
-                <th>{{__('admin.image')}}</th>
                 <th>{{__('admin.name')}}</th>
-                <th>{{__('admin.email')}}</th>
-                <th>{{__('admin.phone')}}</th>
-                <th>{{__('admin.ban_status')}}</th>
+                <th>{{__('admin.doctor')}}</th>
+                <th>{{__('admin.address')}}</th>
+                <th>{{__('admin.booking_link')}}</th>
+                <th>{{__('admin.location_link')}}</th>
                 <th>{{__('admin.control')}}</th>
             </tr>
         </thead>
@@ -32,21 +32,11 @@
                         <span class="checkmark"></span>
                         </label>
                     </td>
-                    <td><img src="{{$clinic->image}}" width="30px" height="30px" alt=""></td>
                     <td>{{ $clinic->name }}</td>
-                    <td>{{ $clinic->email }}</td>
-                    <td>{{ $clinic->phone }}</td>
-                    <td>
-                        @if ($clinic->is_blocked)
-                        <span class="btn btn-sm round btn-outline-danger">
-                            {{ __('admin.Prohibited') }} <i class="la la-close font-medium-2"></i>
-                        </span>
-                        @else
-                        <span class="btn btn-sm round btn-outline-success">
-                            {{ __('admin.Unspoken') }} <i class="la la-check font-medium-2"></i>
-                        </span>
-                        @endif
-                    </td>
+                    <td>{{ $clinic->doctor->name??'' }}</td>
+                    <td>{{ $clinic->address }}</td>
+                    <td><a href="{{ $clinic->booking_link }}" target="blank">{{ __('admin.link') }}</a></td>
+                    <td><a href="{{ $clinic->location_link }}" target="blank">{{ __('admin.link') }}</a></td>
                     
                     <td class="product-action"> 
                         <span class="text-primary"><a href="{{ route('admin.clinics.show', ['id' => $clinic->id]) }}"><i class="feather icon-eye"></i></a></span>

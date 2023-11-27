@@ -18,40 +18,15 @@
             'input_type' => 'text' , 
             'input_name' => __('admin.name') , 
         ] ,
-        'phone' => [
+        'address' => [
             'input_type' => 'text' , 
-            'input_name' => __('admin.phone') , 
+            'input_name' => __('admin.address') , 
         ] ,
-        'email' => [
-            'input_type' => 'text' , 
-            'input_name' => __('admin.email') , 
-        ] ,
-        'active' => [
+         'doctor_id' => [
             'input_type' => 'select' , 
-            'rows'       => [
-              '1' => [
-                'name' => __('admin.activate') , 
-                'id' => 1 , 
-              ],
-              '2' => [
-                'name' => __('admin.dis_activate') , 
-                'id' => 0 , 
-              ],
-            ] , 
-            'input_name' => __('admin.phone_activation_status')  , 
+            'rows'       => $doctors , 
+            'input_name' => __('admin.doctor') , 
         ] ,
-        {{-- 'country_id' => [
-            'input_type' => 'select' , 
-            'rows'       => $countries , 
-            'input_name' => __('admin.country') , 
-        ] ,
-        'intro_fqs_category_id' => [
-            'input_type' => 'select' , 
-            'rows'       => $categories , 
-            'row_name'   => 'title' , 
-            'input_name' => __('admin.section') , 
-        ] ,
-         --}}
     ]" 
 >
 

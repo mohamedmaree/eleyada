@@ -1788,7 +1788,7 @@ Route::group([
             'icon'      => '<i class="feather icon-image"></i>',
             'type'      => 'parent',
             'sub_route' => false,
-            'child'     => ['clinics.create', 'clinics.store','clinics.edit', 'clinics.update', 'clinics.show', 'clinics.delete'  ,'clinics.deleteAll' ,]
+            'child'     => ['clinics.create', 'clinics.store','clinics.edit', 'clinics.update', 'clinics.show', 'clinics.delete'  ,'clinics.deleteAll' ,'clinics.delete.image',]
         ]);
 
         # clinics store
@@ -1838,6 +1838,11 @@ Route::group([
             'uses'  => 'ClinicController@destroyAll',
             'as'    => 'clinics.deleteAll',
             'title' => 'delete_group_of_clinics'
+        ]);
+        Route::post('clinics/delete-image', [
+            'uses'  => 'ClinicController@deleteImage',
+            'as'    => 'clinics.delete.image',
+            'title' => 'delete_image'
         ]);
     /*------------ end Of clinics ----------*/
     

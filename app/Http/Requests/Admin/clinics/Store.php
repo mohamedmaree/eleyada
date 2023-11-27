@@ -15,9 +15,12 @@ class Store extends FormRequest
     {
         return [
             'name'                  => 'required|max:191',
-            'phone'                 => 'required|numeric|unique:users,phone',
-            'email'                 => 'required|email|max:191|unique:users,email',
-            'password'              => ['required','max:191'],
+            'doctor_id'             => 'required|exists:doctors,id',
+            'booking_link'          => 'nullable',
+            'location_link'         => 'nullable',
+            'address'               => 'nullable',
+            'lat'                   => 'nullable',
+            'lng'                   => 'nullable',
         ];
     }
 }
