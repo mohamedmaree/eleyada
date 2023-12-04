@@ -48,7 +48,7 @@
                                                         <div class="imagesUploadBlock">
                                                             <label class="uploadImg">
                                                                 <span><i class="feather icon-image"></i></span>
-                                                                <input type="file" accept="image/*" name="logo" class="imageUploader">
+                                                                <input type="file" accept="image/*" name="avatar" class="imageUploader">
                                                             </label>
                                                             <div class="uploadedBlock">
                                                                 <img src="{{auth('admin')->user()->avatar}}">

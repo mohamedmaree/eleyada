@@ -1854,7 +1854,7 @@ Route::group([
             'icon'      => '<i class="feather icon-image"></i>',
             'type'      => 'parent',
             'sub_route' => false,
-            'child'     => ['products.create', 'products.store','products.edit', 'products.update', 'products.show', 'products.delete'  ,'products.deleteAll' ,]
+            'child'     => ['products.create', 'products.store','products.edit', 'products.update', 'products.show', 'products.delete'  ,'products.deleteAll','products.delete.image',]
         ]);
 
         # products store
@@ -1904,6 +1904,11 @@ Route::group([
             'uses'  => 'ProductController@destroyAll',
             'as'    => 'products.deleteAll',
             'title' => 'delete_group_of_products'
+        ]);
+        Route::post('products/delete-image', [
+            'uses'  => 'ProductController@deleteImage',
+            'as'    => 'products.delete.image',
+            'title' => 'delete_image'
         ]);
     /*------------ end Of products ----------*/
     
@@ -2211,6 +2216,66 @@ Route::group([
             'title' => 'delete_group_of_academicdegrees'
         ]);
     /*------------ end Of academicdegrees ----------*/
+    /*------------ start Of options ----------*/
+    Route::get('options', [
+        'uses'      => 'OptionsController@index',
+        'as'        => 'options.index',
+        'title'     => 'options',
+        'icon'      => '<i class="feather icon-image"></i>',
+        'type'      => 'parent',
+        'sub_route' => false,
+        'child'     => ['options.create', 'options.store','options.edit', 'options.update', 'options.show', 'options.delete'  ,'options.deleteAll' ,]
+    ]);
+
+    # options store
+    Route::get('options/create', [
+        'uses'  => 'OptionsController@create',
+        'as'    => 'options.create',
+        'title' => 'add_option_page'
+    ]);
+
+
+    # options store
+    Route::post('options/store', [
+        'uses'  => 'OptionsController@store',
+        'as'    => 'options.store',
+        'title' => 'add_option'
+    ]);
+
+    # options update
+    Route::get('options/{id}/edit', [
+        'uses'  => 'OptionsController@edit',
+        'as'    => 'options.edit',
+        'title' => 'update_option_page'
+    ]);
+
+    # options update
+    Route::put('options/{id}', [
+        'uses'  => 'OptionsController@update',
+        'as'    => 'options.update',
+        'title' => 'update_option'
+    ]);
+
+    # options show
+    Route::get('options/{id}/Show', [
+        'uses'  => 'OptionsController@show',
+        'as'    => 'options.show',
+        'title' => 'show_options_page'
+    ]);
+
+    # options delete
+    Route::delete('options/{id}', [
+        'uses'  => 'OptionsController@destroy',
+        'as'    => 'options.delete',
+        'title' => 'delete_option'
+    ]);
+    #delete all options
+    Route::post('delete-all-options', [
+        'uses'  => 'OptionsController@destroyAll',
+        'as'    => 'options.deleteAll',
+        'title' => 'delete_group_of_options'
+    ]);
+/*------------ end Of options ----------*/
     
     /*------------ start Of pregnantweeksinfos ----------*/
         Route::get('pregnantweeksinfos', [

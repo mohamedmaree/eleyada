@@ -9,8 +9,8 @@ class Product extends BaseModel
     const IMAGEPATH = 'products' ; 
 
     use HasTranslations; 
-    public $translatable = ['value','order','name'];
-    protected $fillable = ['name','price', 'insertion_technique', 'icon', 'product_type_id'];//,'product_custom_field_id','value','order'];
+    public $translatable = ['details','benefits','name'];
+    protected $fillable = ['name','details','benefits','price', 'insertion_technique', 'icon','video', 'product_type_id'];//,'product_custom_field_id','value','order'];
 
     protected $casts = [
         'price'         => 'decimal:2',
@@ -29,22 +29,6 @@ class Product extends BaseModel
         if (null != $value && is_file($value) ) {
             isset($this->attributes['icon']) ? $this->deleteFile($this->attributes['icon'] , static::IMAGEPATH) : '';
             $this->attributes['icon'] = $this->uploadAllTyps($value, static::IMAGEPATH);
-        }
-    }
-
-    public function getVideoAttribute() {
-        if (isset($this->attributes['video'])) {
-            $image = $this->getImage($this->attributes['video'], static::IMAGEPATH);
-        } else {
-            $image = $this->defaultImage( static::IMAGEPATH);
-        }
-        return $image;
-    }
-
-    public function setVideoAttribute($value) {
-        if (null != $value && is_file($value) ) {
-            isset($this->attributes['video']) ? $this->deleteFile($this->attributes['video'] , static::IMAGEPATH) : '';
-            $this->attributes['video'] = $this->uploadAllTyps($value, static::IMAGEPATH);
         }
     }
 

@@ -733,15 +733,15 @@ return [
 
     
     
-    'productoptions'                        => 'خيارات المنتجات',
-    'productoptions'                       => 'خيارات المنتجات',
-    'add_productoptions_page'               => 'صفحة اضافة خيارات المنتجات',
-    'add_productoptions'                    => 'اضافة خيارات المنتجات',
-    'update_productoptions_page'            => 'صفحة تحديث خيارات المنتجات',
-    'update_productoptions'                 => 'تحديث خيارات المنتجات',
-    'show_productoptions_page'              => 'صفحة عرض خيارات المنتجات',
-    'delete_productoptions'                 => 'حذف خيارات المنتجات',
-    'delete_group_of_productoptions'       => 'حذف مجموعة من خيارات المنتجات',
+    'options'                        => 'سمات المنتجات',
+    'options'                       => 'سمات المنتجات',
+    'add_option_page'               => 'صفحة اضافة سمات المنتجات',
+    'add_option'                    => 'اضافة سمات المنتجات',
+    'update_option_page'            => 'صفحة تحديث سمات المنتجات',
+    'update_option'                 => 'تحديث سمات المنتجات',
+    'show_options_page'              => 'صفحة عرض سمات المنتجات',
+    'delete_option'                 => 'حذف سمات المنتجات',
+    'delete_group_of_options'       => 'حذف مجموعة من سمات المنتجات',
 
     
     
@@ -802,6 +802,12 @@ return [
     'booking_link' => 'رابط الحجز',
     'phone_numbers' => 'ارقام الهاتف',
     'add_number' => 'اضافة رقم',
+    'details'    => ' التفاصيل',
+    'benefits'   => ' المميزات',
+    'option'     => 'الخيار',
+    'add_option'     => 'اضافة خيار',
+    'option_value'  => ' وصف الخيار',
+    'add_option_value'=> ' اضافة وصف الخيار',
 
     #new_comand_translations_here
                 

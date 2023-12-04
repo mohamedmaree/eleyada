@@ -11,16 +11,12 @@
     datefilter="true" 
     order="true" 
     extrabuttons="true"
-    addbutton="{{ route('admin.products.create') }}" 
-    deletebutton="{{ route('admin.products.deleteAll') }}" 
+    addbutton="{{ route('admin.options.create') }}" 
+    deletebutton="{{ route('admin.options.deleteAll') }}" 
     :searchArray="[
         'name' => [
             'input_type' => 'text' , 
             'input_name' => __('admin.name') , 
-        ],'product_type_id' => [
-            'input_type' => 'select' , 
-            'rows'       => $productTypes , 
-            'input_name' => __('admin.producttypes') , 
         ] 
     ]" 
 >
@@ -46,5 +42,5 @@
     <script src="{{asset('admin/app-assets/js/scripts/extensions/sweet-alerts.js')}}"></script>
     @include('admin.shared.deleteAll')
     @include('admin.shared.deleteOne')
-    @include('admin.shared.filter_js' , [ 'index_route' => url('admin/products')])
+    @include('admin.shared.filter_js' , [ 'index_route' => url('admin/options')])
 @endsection

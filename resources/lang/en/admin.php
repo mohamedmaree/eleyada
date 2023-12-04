@@ -488,4 +488,10 @@ return [
     'booking_link' => 'Booking Link',
     'phone_numbers' => 'Phone Numbers',
     'add_number' => 'Add Number',
+    'details'    => 'Details',
+    'benefits'   => 'Benefits',
+    'option'     => 'option',
+    'add_option'     => 'Add Option',
+    'option_value'  => ' Option Value',
+    'add_option_value'=> 'Add option value',
 ];

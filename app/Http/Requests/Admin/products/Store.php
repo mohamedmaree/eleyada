@@ -14,10 +14,13 @@ class Store extends FormRequest
     public function rules()
     {
         return [
-            'name'                  => 'required|max:191',
-            'phone'                 => 'required|numeric|unique:users,phone',
-            'email'                 => 'required|email|max:191|unique:users,email',
-            'password'              => ['required','max:191'],
+            'name.*'                  => 'required',
+            'details.*'               => 'nullable',
+            'benefits.*'              => 'nullable',
+            'product_type_id'         => 'required|exists:product_types,id',
+            'price'                   => 'required',
+            'video'                   => 'nullable',
+            'icon'                    => 'required|image',
         ];
     }
 }
